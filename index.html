@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tagd Components</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind CDN config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+
+            theme: {
+                extend: {
+                    screens: {
+                        sm: '480px',
+                        md: '768px',
+                        lg: '1010px',
+                        xl: '1365px',
+                    },
+                    fontFamily: {
+                        sans: [
+                            'Hellix',
+                            'Inter',
+                            'Montserrat',
+                            'Open Sans',
+                            'Arial',
+                            'sans-serif'
+                        ],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#011F4B',
+                            dark: '#01275F',
+                        },
+
+                        altButton: {
+                            DEFAULT: '#005B96',
+                            dark: '#00568D',
+                        },
+
+                        surface: {
+                            page: '#FFFFFF',
+                            pageDark: '#181A1B',
+                            disabled: '#E5E6EB',
+                            disabledDark: '#25282A',
+                        },
+
+                        text: {
+                            inverse: '#FFFFFF',
+                            inverseDark: '#E8E6E3',
+                            muted: '#9EA3AE',
+                            mutedDark: '#B0A99F',
+                        },
+
+                        border: {
+                            focus: '#2563EB',
+                        },
+                    },
+                    spacing: {
+                        'page-x': '1rem',
+                        'component-gap': '1rem',
+                        'button-gap': '0.5rem',
+                        'button-y': '1.125rem',
+                        'button-x': '1rem',
+                    },
+                    borderRadius: {
+                        pill: '6.25rem',
+                        buttonSoft: '2rem',
+                    },
+                    letterSpacing: {
+                        button: '-0.002rem',
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- Hellix Font -->
+    <style>
+        @font-face {
+            font-family: "Hellix";
+            src: url("./fonts/Hellix-Regular.woff2") format("woff2");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Hellix";
+            src: url("./fonts/Hellix-Medium.woff2") format("woff2");
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Hellix";
+            src: url("./fonts/Hellix-SemiBold.woff2") format("woff2");
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Hellix";
+            src: url("./fonts/Hellix-Bold.woff2") format("woff2");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+</head>
+
+
+<body class="min-h-screen overflow-y-auto bg-surface-page p-0 m-0 font-sans dark:bg-surface-pageDark">
+
+    <!-- components-wrapper (added demo max-width and padding for mobile) -->
+    <main data-component="wrapper" class="flex w-full flex-col gap-component-gap p-page-x max-w-[24.375rem]">
+
+
+        <!-- Disabled state preview -->
+        <button type="button" disabled data-action="continue" data-state="disabled" data-variant="primary"
+            data-size="md"
+            class="inline-flex w-full items-center justify-center gap-button-gap rounded-pill px-button-x py-button-y text-base font-semibold leading-5 tracking-button transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed data-[state=default]:bg-primary data-[state=default]:text-text-inverse data-[state=default]:hover:bg-primary/90 data-[state=default]:active:bg-primary/95 data-[state=disabled]:bg-surface-disabled data-[state=disabled]:text-text-muted dark:data-[state=default]:bg-primary-dark dark:data-[state=default]:text-text-inverseDark dark:data-[state=disabled]:bg-surface-disabledDark dark:data-[state=disabled]:text-text-mutedDark">
+            <span data-element="button-label">
+                Continue
+            </span>
+        </button>
+
+
+        <!-- Default state preview -->
+        <button type="button" data-action="continue" data-state="default" data-variant="primary" data-size="md"
+            class="inline-flex w-full items-center justify-center gap-button-gap rounded-pill px-button-x py-button-y text-base font-semibold leading-5 tracking-button transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed data-[state=default]:bg-primary data-[state=default]:text-text-inverse data-[state=default]:hover:bg-primary/90 data-[state=default]:active:bg-primary/95 data-[state=disabled]:bg-surface-disabled data-[state=disabled]:text-text-muted dark:data-[state=default]:bg-primary-dark dark:data-[state=default]:text-text-inverseDark dark:data-[state=disabled]:bg-surface-disabledDark dark:data-[state=disabled]:text-text-mutedDark">
+            <span data-element="button-label">
+                Continue
+            </span>
+        </button>
+
+
+        <!-- alt-button-2 -->
+        <button type="button" data-action="select-man" data-state="default" data-variant="alt-button" data-size="md"
+            class="inline-flex items-center justify-center gap-button-gap rounded-pill bg-altButton p-4 text-base font-medium leading-5 text-text-inverse transition hover:bg-altButton/90 active:bg-altButton/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-altButton-dark dark:text-text-inverseDark">
+            <span data-element="button-label">Man</span>
+        </button>
+
+        <!-- alt-button-1 -->
+        <button type="button" data-action="select-genderfluid" data-state="default" data-variant="alt-button-soft"
+            data-size="md"
+            class="inline-flex w-full items-center justify-center gap-button-gap rounded-buttonSoft bg-altButton/10 py-button-y text-base font-semibold leading-5 tracking-button text-primary transition hover:bg-altButton/15 active:bg-altButton/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-altButton-dark/10 dark:text-text-inverseDark dark:hover:bg-altButton-dark/15 dark:active:bg-altButton-dark/20">
+            <span data-element="button-label">Genderfluid</span>
+        </button>
+    </main>
+
+
+</body>
+
+</html>
