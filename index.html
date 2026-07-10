@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tagd Components</title>
 
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -37,28 +38,60 @@
                             DEFAULT: '#011F4B',
                             dark: '#01275F',
                         },
-
                         altButton: {
                             DEFAULT: '#005B96',
                             dark: '#00568D',
                         },
-
+                        danger: {
+                            DEFAULT: '#FA003F',
+                            dark: '#B4002D',
+                        },
                         surface: {
                             page: '#FFFFFF',
                             pageDark: '#181A1B',
                             disabled: '#E5E6EB',
                             disabledDark: '#25282A',
                         },
-
                         text: {
+                            primary: '#000000',
+                            primaryDark: '#E8E6E3',
+
                             inverse: '#FFFFFF',
                             inverseDark: '#E8E6E3',
                             muted: '#9EA3AE',
                             mutedDark: '#B0A99F',
-                        },
 
+                            heading: '#111111',
+                            headingDark: '#DDDAD6',
+                            description: '#646464',
+                            descriptionDark: '#A9A296',
+
+                            input: '#011F4B',
+                            inputDark: '#D0CCC6',
+                        },
                         border: {
                             focus: '#2563EB',
+
+                            input: '#011F4B',
+                            inputDark: '#7F7669',
+                            inputFocus: '#005B96',
+                            inputFocusDark: '#007FD2',
+                        },
+                        checkbox: {
+                            border: '#011F4B',
+                            borderDark: '#D0CCC6',
+                            checked: '#011F4B',
+                            checkedDark: '#01275F',
+                            check: '#FFFFFF',
+                            checkDark: '#E8E6E3',
+                        },
+                        upload: {
+                            surface: '#F4F4F6',
+                            surfaceDark: '#1E2021',
+                        },
+                        overlay: {
+                            upload: 'rgba(0, 0, 0, 0.6)',
+                            uploadDark: 'rgba(24, 26, 27, 0.6)',
                         },
                     },
                     spacing: {
@@ -67,13 +100,75 @@
                         'button-gap': '0.5rem',
                         'button-y': '1.125rem',
                         'button-x': '1rem',
+
+                        'progress-gap': '2rem',
+
+                        'input-x': '1.095rem',
+                        'input-y': '1rem',
+                        'field-gap': '0.5rem',
+
+                        'checkbox-offset-y': '0.1875rem',
+
+                        'upload-grid-gap': '1rem',
+                        'upload-action-gap': '0.25rem',
                     },
                     borderRadius: {
                         pill: '6.25rem',
                         buttonSoft: '2rem',
+                        input: '1rem',
+                        checkbox: '0.25rem',
+                    },
+                    width: {
+                        'progress-step-1-of-9': '11.111111%',
+                        'progress-step-2-of-9': '22.222222%',
+                        'progress-step-3-of-9': '33.333333%',
+                        'progress-step-4-of-9': '44.444444%',
+                        'progress-step-5-of-9': '55.555556%',
+                        'progress-step-6-of-9': '66.666667%',
+                        'progress-step-7-of-9': '77.777778%',
+                        'progress-step-8-of-9': '88.888889%',
+                        'progress-step-9-of-9': '100%',
+
+                        'checkbox-size': '1.125rem',
+                        'checkbox-check-width': '0.285rem',
+
+                        'upload-add-icon': '2.25rem',
+                        'upload-spinner-size': '1.875rem',
+                        'upload-action-size': '1.25rem',
+                        'upload-action-icon': '0.75rem',
+                    },
+                    height: {
+                        'progress-height': '0.5rem',
+
+                        'checkbox-size': '1.125rem',
+                        'checkbox-check-height': '0.55rem',
+
+                        'upload-add-icon': '2.25rem',
+                        'upload-spinner-size': '1.875rem',
+                        'upload-action-size': '1.25rem',
+                        'upload-action-icon': '0.75rem',
+                    },
+                    inset: {
+                        'checkbox-check-top': '0.125rem',
+
+                        'upload-action-offset-x': '0.25rem',
+                        'upload-action-offset-y': '0.25rem',
+                    },
+                    lineHeight: {
+                        description: '1.375rem',
                     },
                     letterSpacing: {
                         button: '-0.002rem',
+                        progress: '0.025rem',
+                        heading: '0.00833em',
+                        status: '0.025rem',
+                    },
+                    aspectRatio: {
+                        uploadCard: '3 / 4',
+                    },
+                    zIndex: {
+                        'upload-base': '0',
+                        'upload-overlay': '1',
                     },
                 },
             },
@@ -123,7 +218,7 @@
     <main data-component="wrapper" class="flex w-full flex-col gap-component-gap p-page-x max-w-[24.375rem]">
 
 
-        <!-- Disabled state preview -->
+        <!-- default-button Disabled state preview -->
         <button type="button" disabled data-action="continue" data-state="disabled" data-variant="primary"
             data-size="md"
             class="inline-flex w-full items-center justify-center gap-button-gap rounded-pill px-button-x py-button-y text-base font-semibold leading-5 tracking-button transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed data-[state=default]:bg-primary data-[state=default]:text-text-inverse data-[state=default]:hover:bg-primary/90 data-[state=default]:active:bg-primary/95 data-[state=disabled]:bg-surface-disabled data-[state=disabled]:text-text-muted dark:data-[state=default]:bg-primary-dark dark:data-[state=default]:text-text-inverseDark dark:data-[state=disabled]:bg-surface-disabledDark dark:data-[state=disabled]:text-text-mutedDark">
@@ -133,7 +228,7 @@
         </button>
 
 
-        <!-- Default state preview -->
+        <!-- default-button Default state preview -->
         <button type="button" data-action="continue" data-state="default" data-variant="primary" data-size="md"
             class="inline-flex w-full items-center justify-center gap-button-gap rounded-pill px-button-x py-button-y text-base font-semibold leading-5 tracking-button transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed data-[state=default]:bg-primary data-[state=default]:text-text-inverse data-[state=default]:hover:bg-primary/90 data-[state=default]:active:bg-primary/95 data-[state=disabled]:bg-surface-disabled data-[state=disabled]:text-text-muted dark:data-[state=default]:bg-primary-dark dark:data-[state=default]:text-text-inverseDark dark:data-[state=disabled]:bg-surface-disabledDark dark:data-[state=disabled]:text-text-mutedDark">
             <span data-element="button-label">
@@ -154,6 +249,252 @@
             class="inline-flex w-full items-center justify-center gap-button-gap rounded-buttonSoft bg-altButton/10 py-button-y text-base font-semibold leading-5 tracking-button text-primary transition hover:bg-altButton/15 active:bg-altButton/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-altButton-dark/10 dark:text-text-inverseDark dark:hover:bg-altButton-dark/15 dark:active:bg-altButton-dark/20">
             <span data-element="button-label">Genderfluid</span>
         </button>
+
+        <!-- step-progress-bar -->
+        <div data-component="step-progress-bar" data-state="active" data-step-current="1" data-step-total="9"
+            class="flex items-center justify-between gap-progress-gap">
+            <div data-element="progress-track" role="progressbar" aria-label="Step progress" aria-valuemin="1"
+                aria-valuemax="9" aria-valuenow="1"
+                class="h-progress-height w-full rounded-pill bg-surface-disabled dark:bg-surface-disabledDark">
+                <div data-element="progress-fill"
+                    class="h-full w-progress-step-1-of-9 rounded-pill bg-altButton dark:bg-altButton-dark"></div>
+            </div>
+
+            <span data-element="progress-label"
+                class="shrink-0 text-xs font-medium tracking-progress text-text-primary dark:text-text-primaryDark">
+                1/9
+            </span>
+        </div>
+
+        <!-- default-heading -->
+        <h1 data-element="default-heading"
+            class="text-2xl font-bold leading-9 tracking-heading text-text-heading dark:text-text-headingDark">
+            Enter your number
+        </h1>
+
+        <!-- default-description -->
+        <p data-element="default-description"
+            class="text-sm font-medium leading-description text-text-description dark:text-text-descriptionDark">
+            We’ll use it to send you verification code.
+        </p>
+
+        <!-- input-version-#1 -->
+        <div data-component="input-field-group" data-state="default" class="group/input flex flex-col gap-field-gap">
+            <div data-component="input-field" data-state="default" data-variant="email" data-size="md"
+                class="w-full rounded-input border-2 bg-surface-page px-input-x py-input-y transition data-[state=default]:border-border-input data-[state=default]:focus-within:border-border-inputFocus data-[state=error]:border-danger data-[state=error]:focus-within:border-danger dark:bg-surface-pageDark dark:data-[state=default]:border-border-inputDark dark:data-[state=default]:focus-within:border-border-inputFocusDark dark:data-[state=error]:border-danger-dark dark:data-[state=error]:focus-within:border-danger-dark">
+                <input data-element="input"
+                    class="w-full bg-transparent text-base text-text-input outline-none placeholder:text-text-description focus:outline-none dark:text-text-inputDark dark:placeholder:text-text-descriptionDark"
+                    type="email" name="email" autocomplete="email" inputmode="email" aria-label="Email address"
+                    aria-invalid="false" aria-describedby="email-error-message-default"
+                    placeholder="example@gmail.com" />
+            </div>
+
+            <!-- default-error-text -->
+            <span id="email-error-message-default" data-element="input-error-message"
+                class="hidden text-xs font-medium tracking-status text-danger group-data-[state=error]/input:block dark:text-danger-dark">
+                Invalid email
+            </span>
+        </div>
+
+        <!-- input-version-#1 on error -->
+        <div data-component="input-field-group" data-state="error" class="group/input flex flex-col gap-field-gap">
+            <div data-component="input-field" data-state="error" data-variant="email" data-size="md"
+                class="w-full rounded-input border-2 bg-surface-page px-input-x py-input-y transition data-[state=default]:border-border-input data-[state=default]:focus-within:border-border-inputFocus data-[state=error]:border-danger data-[state=error]:focus-within:border-danger dark:bg-surface-pageDark dark:data-[state=default]:border-border-inputDark dark:data-[state=default]:focus-within:border-border-inputFocusDark dark:data-[state=error]:border-danger-dark dark:data-[state=error]:focus-within:border-danger-dark">
+                <input data-element="input"
+                    class="w-full bg-transparent text-base text-text-input outline-none placeholder:text-text-description focus:outline-none dark:text-text-inputDark dark:placeholder:text-text-descriptionDark"
+                    type="email" name="email" autocomplete="email" inputmode="email" aria-label="Email address"
+                    aria-invalid="true" aria-describedby="email-error-message-error" placeholder="example@gmail.com"
+                    value="johndoe@gmail.com" />
+            </div>
+
+            <!-- default-error-text -->
+            <span id="email-error-message-error" data-element="input-error-message"
+                class="hidden text-xs font-medium tracking-status text-danger group-data-[state=error]/input:block dark:text-danger-dark">
+                Invalid email
+            </span>
+        </div>
+
+        <!-- default-checkbox -->
+        <label data-component="checkbox-field" data-state="default" class="inline-flex cursor-pointer gap-button-gap">
+            <input data-element="checkbox-input" type="checkbox"
+                class="mt-checkbox-offset-y relative flex h-checkbox-size w-checkbox-size shrink-0 cursor-pointer appearance-none items-center justify-center rounded-checkbox border border-checkbox-border bg-transparent transition checked:border-checkbox-checked checked:bg-checkbox-checked checked:after:absolute checked:after:top-checkbox-check-top checked:after:h-checkbox-check-height checked:after:w-checkbox-check-width checked:after:rotate-45 checked:after:border-2 checked:after:border-l-0 checked:after:border-t-0 checked:after:border-checkbox-check checked:after:content-[''] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:border-checkbox-borderDark dark:checked:border-checkbox-checkedDark dark:checked:bg-checkbox-checkedDark dark:checked:after:border-checkbox-checkDark" />
+
+            <span data-element="checkbox-label"
+                class="text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                Visible on profile
+            </span>
+        </label>
+
+        <!-- image-upload-grid -->
+        <div data-component="image-upload-grid" class="grid grid-cols-3 gap-upload-grid-gap">
+            <!-- image-upload-card: empty -->
+            <div data-component="image-upload-card" data-state="empty" data-upload-slot="1"
+                class="group/upload-card relative flex aspect-uploadCard w-full items-center justify-center overflow-hidden rounded-xl bg-upload-surface dark:bg-upload-surfaceDark">
+                <!-- empty-state -->
+                <button type="button" data-action="upload-image" data-element="empty-state"
+                    class="hidden h-full w-full cursor-pointer items-center justify-center group-data-[state=empty]/upload-card:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
+                    aria-label="Upload image">
+                    <img data-element="empty-state-icon"
+                        class="h-upload-add-icon w-upload-add-icon [filter:brightness(0)_saturate(100%)_invert(23%)_sepia(88%)_saturate(1449%)_hue-rotate(180deg)_brightness(95%)_contrast(103%)]"
+                        src="https://i.ibb.co.com/zVHWJPfM/plus.webp" alt="" aria-hidden="true" />
+                </button>
+
+                <!-- loading-state -->
+                <div data-element="loading-state"
+                    class="relative hidden h-full w-full items-center justify-center group-data-[state=loading]/upload-card:flex"
+                    aria-busy="true">
+                    <div data-element="loading-overlay"
+                        class="absolute inset-0 z-upload-overlay flex items-center justify-center bg-overlay-upload dark:bg-overlay-uploadDark">
+                        <img data-element="loading-spinner"
+                            class="h-upload-spinner-size w-upload-spinner-size animate-spin motion-reduce:animate-none [filter:brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(1%)_hue-rotate(241deg)_brightness(113%)_contrast(101%)]"
+                            src="https://i.ibb.co.com/G4HWgm26/spinner-round-30.webp" alt="" aria-hidden="true" />
+                    </div>
+
+                    <img data-element="uploaded-image-preview" class="z-upload-base h-full w-full object-cover"
+                        src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="Uploaded photo preview" />
+                </div>
+
+                <!-- loaded-state -->
+                <div data-element="loaded-state"
+                    class="relative hidden h-full w-full items-center justify-center group-data-[state=loaded]/upload-card:flex">
+                    <div data-element="image-actions" class="absolute inset-0 z-upload-overlay">
+                        <div data-element="image-action-list"
+                            class="absolute bottom-upload-action-offset-y right-upload-action-offset-x flex flex-col gap-upload-action-gap">
+                            <button type="button" data-action="edit-image"
+                                class="inline-flex h-upload-action-size w-upload-action-size cursor-pointer items-center justify-center rounded-full bg-surface-page transition hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-surface-pageDark dark:hover:bg-surface-disabledDark"
+                                aria-label="Edit image">
+                                <img data-element="edit-icon"
+                                    class="h-upload-action-icon w-upload-action-icon [filter:brightness(0)_saturate(100%)_invert(7%)_sepia(80%)_saturate(3253%)_hue-rotate(211deg)_brightness(95%)_contrast(99%)]"
+                                    src="https://i.ibb.co.com/jv2LVHT5/edit-pencil.webp" alt="" aria-hidden="true" />
+                            </button>
+
+                            <button type="button" data-action="remove-image"
+                                class="inline-flex h-upload-action-size w-upload-action-size cursor-pointer items-center justify-center rounded-full bg-surface-page transition hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-surface-pageDark dark:hover:bg-surface-disabledDark"
+                                aria-label="Remove image">
+                                <img data-element="remove-icon"
+                                    class="h-upload-action-icon w-upload-action-icon [filter:brightness(0)_saturate(100%)_invert(7%)_sepia(80%)_saturate(3253%)_hue-rotate(211deg)_brightness(95%)_contrast(99%)]"
+                                    src="https://i.ibb.co.com/1Jfm0mMM/close-cross.webp" alt="" aria-hidden="true" />
+                            </button>
+                        </div>
+                    </div>
+
+                    <img data-element="uploaded-image" class="z-upload-base h-full w-full object-cover"
+                        src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="Uploaded photo" />
+                </div>
+            </div>
+
+            <!-- image-upload-card: loading -->
+            <div data-component="image-upload-card" data-state="loading" data-upload-slot="2"
+                class="group/upload-card relative flex aspect-uploadCard w-full items-center justify-center overflow-hidden rounded-xl bg-upload-surface dark:bg-upload-surfaceDark">
+                <!-- empty-state -->
+                <button type="button" data-action="upload-image" data-element="empty-state"
+                    class="hidden h-full w-full cursor-pointer items-center justify-center group-data-[state=empty]/upload-card:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
+                    aria-label="Upload image">
+                    <img data-element="empty-state-icon"
+                        class="h-upload-add-icon w-upload-add-icon [filter:brightness(0)_saturate(100%)_invert(23%)_sepia(88%)_saturate(1449%)_hue-rotate(180deg)_brightness(95%)_contrast(103%)]"
+                        src="https://i.ibb.co.com/zVHWJPfM/plus.webp" alt="" aria-hidden="true" />
+                </button>
+
+                <!-- loading-state -->
+                <div data-element="loading-state"
+                    class="relative hidden h-full w-full items-center justify-center group-data-[state=loading]/upload-card:flex"
+                    aria-busy="true">
+                    <div data-element="loading-overlay"
+                        class="absolute inset-0 z-upload-overlay flex items-center justify-center bg-overlay-upload dark:bg-overlay-uploadDark">
+                        <img data-element="loading-spinner"
+                            class="h-upload-spinner-size w-upload-spinner-size animate-spin motion-reduce:animate-none [filter:brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(1%)_hue-rotate(241deg)_brightness(113%)_contrast(101%)]"
+                            src="https://i.ibb.co.com/G4HWgm26/spinner-round-30.webp" alt="" aria-hidden="true" />
+                    </div>
+
+                    <img data-element="uploaded-image-preview" class="z-upload-base h-full w-full object-cover"
+                        src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="Uploaded photo preview" />
+                </div>
+
+                <!-- loaded-state -->
+                <div data-element="loaded-state"
+                    class="relative hidden h-full w-full items-center justify-center group-data-[state=loaded]/upload-card:flex">
+                    <div data-element="image-actions" class="absolute inset-0 z-upload-overlay">
+                        <div data-element="image-action-list"
+                            class="absolute bottom-upload-action-offset-y right-upload-action-offset-x flex flex-col gap-upload-action-gap">
+                            <button type="button" data-action="edit-image"
+                                class="inline-flex h-upload-action-size w-upload-action-size cursor-pointer items-center justify-center rounded-full bg-surface-page transition hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-surface-pageDark dark:hover:bg-surface-disabledDark"
+                                aria-label="Edit image">
+                                <img data-element="edit-icon"
+                                    class="h-upload-action-icon w-upload-action-icon [filter:brightness(0)_saturate(100%)_invert(7%)_sepia(80%)_saturate(3253%)_hue-rotate(211deg)_brightness(95%)_contrast(99%)]"
+                                    src="https://i.ibb.co.com/jv2LVHT5/edit-pencil.webp" alt="" aria-hidden="true" />
+                            </button>
+
+                            <button type="button" data-action="remove-image"
+                                class="inline-flex h-upload-action-size w-upload-action-size cursor-pointer items-center justify-center rounded-full bg-surface-page transition hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-surface-pageDark dark:hover:bg-surface-disabledDark"
+                                aria-label="Remove image">
+                                <img data-element="remove-icon"
+                                    class="h-upload-action-icon w-upload-action-icon [filter:brightness(0)_saturate(100%)_invert(7%)_sepia(80%)_saturate(3253%)_hue-rotate(211deg)_brightness(95%)_contrast(99%)]"
+                                    src="https://i.ibb.co.com/1Jfm0mMM/close-cross.webp" alt="" aria-hidden="true" />
+                            </button>
+                        </div>
+                    </div>
+
+                    <img data-element="uploaded-image" class="z-upload-base h-full w-full object-cover"
+                        src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="Uploaded photo" />
+                </div>
+            </div>
+
+            <!-- image-upload-card: loaded -->
+            <div data-component="image-upload-card" data-state="loaded" data-upload-slot="3"
+                class="group/upload-card relative flex aspect-uploadCard w-full items-center justify-center overflow-hidden rounded-xl bg-upload-surface dark:bg-upload-surfaceDark">
+                <!-- empty-state -->
+                <button type="button" data-action="upload-image" data-element="empty-state"
+                    class="hidden h-full w-full cursor-pointer items-center justify-center group-data-[state=empty]/upload-card:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
+                    aria-label="Upload image">
+                    <img data-element="empty-state-icon"
+                        class="h-upload-add-icon w-upload-add-icon [filter:brightness(0)_saturate(100%)_invert(23%)_sepia(88%)_saturate(1449%)_hue-rotate(180deg)_brightness(95%)_contrast(103%)]"
+                        src="https://i.ibb.co.com/zVHWJPfM/plus.webp" alt="" aria-hidden="true" />
+                </button>
+
+                <!-- loading-state -->
+                <div data-element="loading-state"
+                    class="relative hidden h-full w-full items-center justify-center group-data-[state=loading]/upload-card:flex"
+                    aria-busy="true">
+                    <div data-element="loading-overlay"
+                        class="absolute inset-0 z-upload-overlay flex items-center justify-center bg-overlay-upload dark:bg-overlay-uploadDark">
+                        <img data-element="loading-spinner"
+                            class="h-upload-spinner-size w-upload-spinner-size animate-spin motion-reduce:animate-none [filter:brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(1%)_hue-rotate(241deg)_brightness(113%)_contrast(101%)]"
+                            src="https://i.ibb.co.com/G4HWgm26/spinner-round-30.webp" alt="" aria-hidden="true" />
+                    </div>
+
+                    <img data-element="uploaded-image-preview" class="z-upload-base h-full w-full object-cover"
+                        src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="Uploaded photo preview" />
+                </div>
+
+                <!-- loaded-state -->
+                <div data-element="loaded-state"
+                    class="relative hidden h-full w-full items-center justify-center group-data-[state=loaded]/upload-card:flex">
+                    <div data-element="image-actions" class="absolute inset-0 z-upload-overlay">
+                        <div data-element="image-action-list"
+                            class="absolute bottom-upload-action-offset-y right-upload-action-offset-x flex flex-col gap-upload-action-gap">
+                            <button type="button" data-action="edit-image"
+                                class="inline-flex h-upload-action-size w-upload-action-size cursor-pointer items-center justify-center rounded-full bg-surface-page transition hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-surface-pageDark dark:hover:bg-surface-disabledDark"
+                                aria-label="Edit image">
+                                <img data-element="edit-icon"
+                                    class="h-upload-action-icon w-upload-action-icon [filter:brightness(0)_saturate(100%)_invert(7%)_sepia(80%)_saturate(3253%)_hue-rotate(211deg)_brightness(95%)_contrast(99%)]"
+                                    src="https://i.ibb.co.com/jv2LVHT5/edit-pencil.webp" alt="" aria-hidden="true" />
+                            </button>
+
+                            <button type="button" data-action="remove-image"
+                                class="inline-flex h-upload-action-size w-upload-action-size cursor-pointer items-center justify-center rounded-full bg-surface-page transition hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-surface-pageDark dark:hover:bg-surface-disabledDark"
+                                aria-label="Remove image">
+                                <img data-element="remove-icon"
+                                    class="h-upload-action-icon w-upload-action-icon [filter:brightness(0)_saturate(100%)_invert(7%)_sepia(80%)_saturate(3253%)_hue-rotate(211deg)_brightness(95%)_contrast(99%)]"
+                                    src="https://i.ibb.co.com/1Jfm0mMM/close-cross.webp" alt="" aria-hidden="true" />
+                            </button>
+                        </div>
+                    </div>
+
+                    <img data-element="uploaded-image" class="z-upload-base h-full w-full object-cover"
+                        src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="Uploaded photo" />
+                </div>
+            </div>
+        </div>
     </main>
 
 
