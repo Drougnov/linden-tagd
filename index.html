@@ -93,6 +93,36 @@
                             upload: 'rgba(0, 0, 0, 0.6)',
                             uploadDark: 'rgba(24, 26, 27, 0.6)',
                         },
+                        range: {
+                            track: '#D9D9D9',
+                            trackDark: '#2D3133',
+
+                            fill: '#011F4B',
+                            fillDark: '#01275F',
+
+                            thumb: '#005B96',
+                            thumbDark: '#00568D',
+
+                            tooltip: '#F9FAFB',
+                            tooltipDark: '#1B1D1E',
+                        },
+                        tag: {
+                            selected: '#005B96',
+                            selectedDark: '#00568D',
+
+                            border: '#9EA3AE',
+                            borderDark: '#494F52',
+
+                            soft: '#F9FAFB',
+                            softDark: '#1B1D1E',
+                        },
+                        search: {
+                            surface: '#F4F4F6',
+                            surfaceDark: '#1E2021',
+
+                            border: '#E5E6EB',
+                            borderDark: '#363B3D',
+                        },
                     },
                     spacing: {
                         'page-x': '1rem',
@@ -111,6 +141,30 @@
 
                         'upload-grid-gap': '1rem',
                         'upload-action-gap': '0.25rem',
+
+                        'range-group-gap': '0.125rem',
+                        'range-tooltip-x': '0.5rem',
+                        'range-tooltip-y': '0.375rem',
+
+                        'category-grid-gap-x': '1rem',
+                        'category-grid-gap-y': '0.75rem',
+                        'category-card-gap': '0.5rem',
+                        'category-selected-icon-offset': '0.5rem',
+
+                        'tag-list-gap': '0.5rem',
+                        'tag-gap': '0.5rem',
+                        'tag-x-md': '1rem',
+                        'tag-x-lg': '1.5rem',
+                        'tag-y': '0.5rem',
+
+                        'upload-options-row-gap': '1.5rem',
+                        'upload-option-gap': '0.75rem',
+                        'upload-option-icon-padding': '1rem',
+
+                        'search-gap': '0.5rem',
+                        'search-field-gap': '0.75rem',
+                        'search-field-padding': '1rem',
+                        'search-close-padding': '0.25rem',
                     },
                     borderRadius: {
                         pill: '6.25rem',
@@ -136,6 +190,24 @@
                         'upload-spinner-size': '1.875rem',
                         'upload-action-size': '1.25rem',
                         'upload-action-icon': '0.75rem',
+
+                        'range-value-20-of-60': '33.333333%',
+                        'range-thumb': '2rem',
+                        'range-thumb-core': '1rem',
+
+                        'category-selected-icon': '1.125rem',
+
+                        'tag-icon': '1.125rem',
+
+                        'upload-option-icon': '2.5rem',
+
+                        'button-icon': '1rem',
+
+                        'search-icon': '1.5rem',
+                        'search-clear-icon': '1.25rem',
+                        'search-close-icon': '1.25rem',
+
+                        'notification-container': '26.5625rem',
                     },
                     height: {
                         'progress-height': '0.5rem',
@@ -147,21 +219,54 @@
                         'upload-spinner-size': '1.875rem',
                         'upload-action-size': '1.25rem',
                         'upload-action-icon': '0.75rem',
+
+                        'range-control': '1.875rem',
+                        'range-track': '0.375rem',
+                        'range-thumb': '2rem',
+                        'range-thumb-core': '1rem',
+
+                        'category-image': '9.375rem',
+                        'category-selected-icon': '1.125rem',
+
+                        'tag-icon': '1.125rem',
+
+                        'upload-option-icon': '2.5rem',
+
+                        'button-icon': '1rem',
+
+                        'search-icon': '1.5rem',
+                        'search-clear-icon': '1.25rem',
+                        'search-close-icon': '1.25rem',
+
+                        'notification-container': '26.5625rem',
+                    },
+                    minWidth: {
+                        'range-tooltip': '3.625rem',
                     },
                     inset: {
                         'checkbox-check-top': '0.125rem',
 
                         'upload-action-offset-x': '0.25rem',
                         'upload-action-offset-y': '0.25rem',
+
+                        'range-thumb-offset': '-0.625rem',
+                        'range-tooltip-top': '-1.875rem',
+                        'range-tooltip-arrow-bottom': '-0.4375rem',
+
+                        'category-selected-icon-offset': '0.5rem',
                     },
                     lineHeight: {
                         description: '1.375rem',
+
+                        tagSmall: '1.125rem',
                     },
                     letterSpacing: {
                         button: '-0.002rem',
                         progress: '0.025rem',
                         heading: '0.00833em',
                         status: '0.025rem',
+
+                        tagSmall: '-0.000875rem',
                     },
                     aspectRatio: {
                         uploadCard: '3 / 4',
@@ -172,6 +277,36 @@
                     },
                 },
             },
+            plugins: [
+                function ({ addUtilities }) {
+                    addUtilities({
+                        '.scrollbar-hidden': {
+                            '-ms-overflow-style': 'none',
+                            'scrollbar-width': 'none',
+                        },
+                        '.scrollbar-hidden::-webkit-scrollbar': {
+                            display: 'none',
+                        },
+                        '.filter-upload-option-icon': {
+                            filter: 'brightness(0) saturate(100%) invert(9%) sepia(9%) saturate(2578%) hue-rotate(182deg) brightness(93%) contrast(91%)',
+                        },
+                        '.filter-icon-primary': {
+                            filter: 'brightness(0) saturate(100%) invert(9%) sepia(9%) saturate(2578%) hue-rotate(182deg) brightness(93%) contrast(91%)',
+                        },
+                        '.filter-icon-inverse': {
+                            filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1%) hue-rotate(241deg) brightness(113%) contrast(101%)',
+                        },
+                        '.hide-search-cancel': {
+                            '-webkit-appearance': 'none',
+                            'appearance': 'none',
+                        },
+                        '.hide-search-cancel::-webkit-search-cancel-button': {
+                            '-webkit-appearance': 'none',
+                            'appearance': 'none',
+                        },
+                    });
+                },
+            ],
         };
     </script>
 
@@ -183,6 +318,10 @@
             font-weight: 400;
             font-style: normal;
             font-display: swap;
+
+            line-gap-override: 0%;
+            ascent-override: 90%;
+            descent-override: 22%;
         }
 
         @font-face {
@@ -191,6 +330,10 @@
             font-weight: 500;
             font-style: normal;
             font-display: swap;
+
+            line-gap-override: 0%;
+            ascent-override: 90%;
+            descent-override: 22%;
         }
 
         @font-face {
@@ -199,6 +342,10 @@
             font-weight: 600;
             font-style: normal;
             font-display: swap;
+
+            line-gap-override: 0%;
+            ascent-override: 90%;
+            descent-override: 22%;
         }
 
         @font-face {
@@ -207,6 +354,10 @@
             font-weight: 700;
             font-style: normal;
             font-display: swap;
+
+            line-gap-override: 0%;
+            ascent-override: 90%;
+            descent-override: 22%;
         }
     </style>
 </head>
@@ -332,7 +483,7 @@
                 class="group/upload-card relative flex aspect-uploadCard w-full items-center justify-center overflow-hidden rounded-xl bg-upload-surface dark:bg-upload-surfaceDark">
                 <!-- empty-state -->
                 <button type="button" data-action="upload-image" data-element="empty-state"
-                    class="hidden h-full w-full cursor-pointer items-center justify-center group-data-[state=empty]/upload-card:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
+                    class="hidden h-full w-full items-center justify-center group-data-[state=empty]/upload-card:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
                     aria-label="Upload image">
                     <img data-element="empty-state-icon"
                         class="h-upload-add-icon w-upload-add-icon [filter:brightness(0)_saturate(100%)_invert(23%)_sepia(88%)_saturate(1449%)_hue-rotate(180deg)_brightness(95%)_contrast(103%)]"
@@ -388,7 +539,7 @@
                 class="group/upload-card relative flex aspect-uploadCard w-full items-center justify-center overflow-hidden rounded-xl bg-upload-surface dark:bg-upload-surfaceDark">
                 <!-- empty-state -->
                 <button type="button" data-action="upload-image" data-element="empty-state"
-                    class="hidden h-full w-full cursor-pointer items-center justify-center group-data-[state=empty]/upload-card:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
+                    class="hidden h-full w-full items-center justify-center group-data-[state=empty]/upload-card:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
                     aria-label="Upload image">
                     <img data-element="empty-state-icon"
                         class="h-upload-add-icon w-upload-add-icon [filter:brightness(0)_saturate(100%)_invert(23%)_sepia(88%)_saturate(1449%)_hue-rotate(180deg)_brightness(95%)_contrast(103%)]"
@@ -444,7 +595,7 @@
                 class="group/upload-card relative flex aspect-uploadCard w-full items-center justify-center overflow-hidden rounded-xl bg-upload-surface dark:bg-upload-surfaceDark">
                 <!-- empty-state -->
                 <button type="button" data-action="upload-image" data-element="empty-state"
-                    class="hidden h-full w-full cursor-pointer items-center justify-center group-data-[state=empty]/upload-card:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
+                    class="hidden h-full w-full items-center justify-center group-data-[state=empty]/upload-card:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
                     aria-label="Upload image">
                     <img data-element="empty-state-icon"
                         class="h-upload-add-icon w-upload-add-icon [filter:brightness(0)_saturate(100%)_invert(23%)_sepia(88%)_saturate(1449%)_hue-rotate(180deg)_brightness(95%)_contrast(103%)]"
@@ -492,6 +643,408 @@
 
                     <img data-element="uploaded-image" class="z-upload-base h-full w-full object-cover"
                         src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="Uploaded photo" />
+                </div>
+            </div>
+        </div>
+
+        <!-- image-loader -->
+        <img data-element="loading-spinner"
+            class="h-upload-spinner-size w-upload-spinner-size animate-spin motion-reduce:animate-none [filter:brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(1%)_hue-rotate(241deg)_brightness(113%)_contrast(101%)]"
+            src="https://i.ibb.co.com/G4HWgm26/spinner-round-30.webp" alt="" aria-hidden="true" />
+
+        <!-- default-label -->
+        <label for="" class="text-base font-semibold text-text-heading dark:text-text-headingDark">Maximum
+            Distance</label>
+
+        <!-- range-slider -->
+        <div data-component="range-slider" data-state="default" data-value="20" data-min="0" data-max="60"
+            class="flex flex-col gap-range-group-gap">
+            <!-- range-control -->
+            <div data-element="range-control" class="flex h-range-control items-center justify-center">
+                <!-- range-track -->
+                <div data-element="range-track"
+                    class="h-range-track w-full cursor-pointer rounded-pill bg-range-track dark:bg-range-trackDark">
+                    <!-- range-fill -->
+                    <div data-element="range-fill"
+                        class="relative flex h-full w-range-value-20-of-60 items-center rounded-pill bg-range-fill dark:bg-range-fillDark">
+                        <!-- range-thumb -->
+                        <button type="button" data-action="change-range" data-element="range-thumb" role="slider"
+                            aria-label="Range value" aria-valuemin="0" aria-valuemax="60" aria-valuenow="20"
+                            aria-valuetext="20"
+                            class="absolute right-range-thumb-offset inline-flex h-range-thumb w-range-thumb cursor-pointer items-center justify-center rounded-full bg-range-thumb/20 p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-range-thumbDark/20">
+                            <span data-element="range-thumb-core"
+                                class="relative flex h-range-thumb-core w-range-thumb-core items-center justify-center rounded-full bg-range-fill dark:bg-range-fillDark">
+                                <!-- range-tooltip -->
+                                <span data-element="range-tooltip"
+                                    class="absolute top-range-tooltip-top flex min-w-range-tooltip items-center justify-center rounded-lg bg-range-tooltip px-range-tooltip-x py-range-tooltip-y text-xs leading-normal text-text-primary after:absolute after:bottom-range-tooltip-arrow-bottom after:left-1/2 after:h-0 after:w-0 after:-translate-x-1/2 after:border-x-8 after:border-t-8 after:border-x-transparent after:border-t-range-tooltip after:content-[''] dark:bg-range-tooltipDark dark:text-text-primaryDark dark:after:border-t-range-tooltipDark">
+                                    20
+                                </span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- range-scale -->
+            <div data-element="range-scale" class="flex items-center justify-between">
+                <span data-element="range-scale-label"
+                    class="text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                    0
+                </span>
+
+                <span data-element="range-scale-label"
+                    class="text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                    10
+                </span>
+
+                <span data-element="range-scale-label"
+                    class="text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                    20
+                </span>
+
+                <span data-element="range-scale-label"
+                    class="text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                    30
+                </span>
+
+                <span data-element="range-scale-label"
+                    class="text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                    40
+                </span>
+
+                <span data-element="range-scale-label"
+                    class="text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                    50
+                </span>
+
+                <span data-element="range-scale-label"
+                    class="text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                    60+
+                </span>
+            </div>
+        </div>
+
+        <!-- category-card-grid -->
+        <div data-component="category-card-grid"
+            class="grid grid-cols-2 gap-x-category-grid-gap-x gap-y-category-grid-gap-y">
+            <!-- category-card: default -->
+            <button type="button" data-component="category-card" data-action="select-category" data-category-id="music"
+                data-state="default" aria-pressed="false"
+                class="group/category-card flex w-full cursor-pointer flex-col gap-category-card-gap text-left focus-visible:outline-none">
+                <span data-element="category-image-wrapper"
+                    class="relative h-category-image w-full overflow-hidden rounded-lg border-2 border-transparent transition group-data-[state=selected]/category-card:border-primary dark:group-data-[state=selected]/category-card:border-primary-dark">
+                    <img data-element="category-image" class="h-full w-full object-cover"
+                        src="https://i.ibb.co.com/v4QGtDJS/music-illustration.webp" alt="Music illustration" />
+
+                    <!-- selected-indicator -->
+                    <span data-element="selected-indicator"
+                        class="absolute right-category-selected-icon-offset top-category-selected-icon-offset hidden items-center justify-center rounded-full bg-primary p-1 group-data-[state=selected]/category-card:flex dark:bg-primary-dark"
+                        aria-hidden="true">
+                        <img data-element="selected-icon"
+                            class="h-category-selected-icon w-category-selected-icon [filter:brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(1%)_hue-rotate(241deg)_brightness(113%)_contrast(101%)]"
+                            src="https://i.ibb.co.com/5gjVfhFj/tick.webp" alt="" />
+                    </span>
+                </span>
+
+                <span data-element="category-title"
+                    class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                    Music
+                </span>
+            </button>
+
+            <!-- category-card: selected -->
+            <button type="button" data-component="category-card" data-action="select-category" data-category-id="music"
+                data-state="selected" aria-pressed="true"
+                class="group/category-card flex w-full cursor-pointer flex-col gap-category-card-gap text-left focus-visible:outline-none">
+                <span data-element="category-image-wrapper"
+                    class="relative h-category-image w-full overflow-hidden rounded-lg border-2 border-transparent transition group-data-[state=selected]/category-card:border-primary dark:group-data-[state=selected]/category-card:border-primary-dark">
+                    <img data-element="category-image" class="h-full w-full object-cover"
+                        src="https://i.ibb.co.com/v4QGtDJS/music-illustration.webp" alt="Music illustration" />
+
+                    <!-- selected-indicator -->
+                    <span data-element="selected-indicator"
+                        class="absolute right-category-selected-icon-offset top-category-selected-icon-offset hidden items-center justify-center rounded-full bg-primary p-1 group-data-[state=selected]/category-card:flex dark:bg-primary-dark"
+                        aria-hidden="true">
+                        <img data-element="selected-icon"
+                            class="h-category-selected-icon w-category-selected-icon [filter:brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(1%)_hue-rotate(241deg)_brightness(113%)_contrast(101%)]"
+                            src="https://i.ibb.co.com/5gjVfhFj/tick.webp" alt="" />
+                    </span>
+                </span>
+
+                <span data-element="category-title"
+                    class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                    Music
+                </span>
+            </button>
+        </div>
+
+        <!-- Subtitle #1 -->
+        <h2 class="text-[1.375rem] leading-[1.875rem] font-semibold text-text-heading dark:text-text-headingDark">Custom
+            Tags</h2>
+
+        <!-- tag-list -->
+        <div data-component="tag-list" class="scrollbar-hidden flex items-center gap-tag-list-gap overflow-x-auto">
+            <!-- tag-chip: selected removable -->
+            <button type="button" data-component="tag-chip" data-action="remove-tag" data-state="selected"
+                data-variant="selected" data-tag-id="gym"
+                class="inline-flex shrink-0 cursor-pointer items-center justify-center gap-tag-gap rounded-pill bg-tag-selected px-tag-x-lg py-tag-y text-base font-semibold text-text-inverse transition hover:bg-tag-selected/90 active:bg-tag-selected/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-tag-selectedDark dark:text-text-inverseDark"
+                aria-label="Remove Gym tag">
+                <span data-element="tag-label" class="whitespace-nowrap">
+                    Gym
+                </span>
+
+                <img data-element="tag-remove-icon"
+                    class="h-tag-icon w-tag-icon [filter:brightness(0)_saturate(100%)_invert(100%)_sepia(0%)_saturate(1%)_hue-rotate(241deg)_brightness(113%)_contrast(101%)]"
+                    src="https://i.ibb.co.com/hJfdxBR2/cross.webp" alt="" aria-hidden="true" />
+            </button>
+
+            <!-- tag-chip: outline -->
+            <button type="button" data-component="tag-chip" data-action="select-tag" data-state="default"
+                data-variant="outline" data-tag-id="nature-lover"
+                class="inline-flex shrink-0 cursor-pointer items-center justify-center gap-tag-gap rounded-pill border border-tag-border bg-surface-page px-tag-x-lg py-tag-y text-base font-semibold text-text-heading transition hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:border-tag-borderDark dark:bg-surface-pageDark dark:text-text-headingDark dark:hover:bg-surface-disabledDark">
+                <span data-element="tag-label" class="whitespace-nowrap">
+                    Nature Lover
+                </span>
+            </button>
+
+            <!-- tag-chip: soft icon -->
+            <button type="button" data-component="tag-chip" data-action="select-tag" data-state="default"
+                data-variant="soft-icon" data-tag-id="here-to-date"
+                class="inline-flex shrink-0 cursor-pointer items-center justify-center gap-tag-gap rounded-pill border border-tag-border bg-tag-soft px-tag-x-md py-tag-y text-sm font-semibold leading-tagSmall tracking-tagSmall text-text-heading transition hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:border-tag-borderDark dark:bg-tag-softDark dark:text-text-headingDark dark:hover:bg-surface-disabledDark">
+                <img data-element="tag-icon"
+                    class="h-tag-icon w-tag-icon [filter:brightness(0)_saturate(100%)_invert(10%)_sepia(9%)_saturate(2240%)_hue-rotate(182deg)_brightness(90%)_contrast(92%)]"
+                    src="https://i.ibb.co.com/DPj9LM0M/latte-bottle.webp" alt="" aria-hidden="true" />
+
+                <span data-element="tag-label" class="whitespace-nowrap">
+                    Here to date
+                </span>
+            </button>
+        </div>
+
+        <!-- upload-options -->
+        <ul data-component="upload-options" class="grid grid-cols-3 gap-y-upload-options-row-gap">
+            <!-- upload-option: photos -->
+            <li data-element="upload-option-item">
+                <button type="button" data-action="open-photo-library" data-provider="photos"
+                    class="flex w-full flex-col items-center gap-upload-option-gap text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span data-element="upload-option-icon-wrapper"
+                        class="flex items-center justify-center rounded-full bg-surface-disabled p-upload-option-icon-padding dark:bg-surface-disabledDark"
+                        aria-hidden="true">
+                        <img data-element="upload-option-icon"
+                            class="h-upload-option-icon w-upload-option-icon filter-upload-option-icon"
+                            src="https://i.ibb.co.com/8n1yMch5/images.webp" alt="" />
+                    </span>
+
+                    <span data-element="upload-option-title"
+                        class="text-base text-text-primary dark:text-text-primaryDark">
+                        Your Photos
+                    </span>
+                </button>
+            </li>
+
+            <!-- upload-option: camera -->
+            <li data-element="upload-option-item">
+                <button type="button" data-action="open-camera" data-provider="camera"
+                    class="flex w-full flex-col items-center gap-upload-option-gap text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span data-element="upload-option-icon-wrapper"
+                        class="flex items-center justify-center rounded-full bg-surface-disabled p-upload-option-icon-padding dark:bg-surface-disabledDark"
+                        aria-hidden="true">
+                        <img data-element="upload-option-icon"
+                            class="h-upload-option-icon w-upload-option-icon filter-upload-option-icon"
+                            src="https://i.ibb.co.com/1fSsXXn9/camera.webp" alt="" />
+                    </span>
+
+                    <span data-element="upload-option-title"
+                        class="text-base text-text-primary dark:text-text-primaryDark">
+                        Camera
+                    </span>
+                </button>
+            </li>
+
+            <!-- upload-option: facebook -->
+            <li data-element="upload-option-item">
+                <button type="button" data-action="connect-provider" data-provider="facebook"
+                    class="flex w-full flex-col items-center gap-upload-option-gap text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span data-element="upload-option-icon-wrapper"
+                        class="flex items-center justify-center rounded-full bg-surface-disabled p-upload-option-icon-padding dark:bg-surface-disabledDark"
+                        aria-hidden="true">
+                        <img data-element="upload-option-icon" class="h-upload-option-icon w-upload-option-icon"
+                            src="https://i.ibb.co.com/yccVYZpw/Facebook.webp" alt="" />
+                    </span>
+
+                    <span data-element="upload-option-copy" class="flex flex-col">
+                        <span data-element="upload-option-title"
+                            class="text-base text-text-primary dark:text-text-primaryDark">
+                            Facebook
+                        </span>
+
+                        <span data-element="upload-option-status"
+                            class="text-xs leading-normal underline text-text-primary dark:text-text-primaryDark">
+                            Connect
+                        </span>
+                    </span>
+                </button>
+            </li>
+
+            <!-- upload-option: instagram -->
+            <li data-element="upload-option-item">
+                <button type="button" data-action="connect-provider" data-provider="instagram"
+                    class="flex w-full flex-col items-center gap-upload-option-gap text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span data-element="upload-option-icon-wrapper"
+                        class="flex items-center justify-center rounded-full bg-surface-disabled p-upload-option-icon-padding dark:bg-surface-disabledDark"
+                        aria-hidden="true">
+                        <img data-element="upload-option-icon" class="h-upload-option-icon w-upload-option-icon"
+                            src="https://i.ibb.co.com/jvLnkpRY/instagram.webp" alt="" />
+                    </span>
+
+                    <span data-element="upload-option-copy" class="flex flex-col">
+                        <span data-element="upload-option-title"
+                            class="text-base text-text-primary dark:text-text-primaryDark">
+                            Instagram
+                        </span>
+
+                        <span data-element="upload-option-status"
+                            class="text-xs leading-normal underline text-text-primary dark:text-text-primaryDark">
+                            Connect
+                        </span>
+                    </span>
+                </button>
+            </li>
+
+            <!-- upload-option: google-drive -->
+            <li data-element="upload-option-item">
+                <button type="button" data-action="upload-from-provider" data-provider="google-drive"
+                    class="flex w-full flex-col items-center gap-upload-option-gap text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span data-element="upload-option-icon-wrapper"
+                        class="flex items-center justify-center rounded-full bg-surface-disabled p-upload-option-icon-padding dark:bg-surface-disabledDark"
+                        aria-hidden="true">
+                        <img data-element="upload-option-icon" class="h-upload-option-icon w-upload-option-icon"
+                            src="https://i.ibb.co.com/CK67zyXR/google-drive.webp" alt="" />
+                    </span>
+
+                    <span data-element="upload-option-copy" class="flex flex-col">
+                        <span data-element="upload-option-title"
+                            class="text-base text-text-primary dark:text-text-primaryDark">
+                            Google Drive
+                        </span>
+
+                        <span data-element="upload-option-status"
+                            class="text-xs leading-normal underline text-text-primary dark:text-text-primaryDark">
+                            Upload
+                        </span>
+                    </span>
+                </button>
+            </li>
+
+            <!-- upload-option: dropbox -->
+            <li data-element="upload-option-item">
+                <button type="button" data-action="upload-from-provider" data-provider="dropbox"
+                    class="flex w-full flex-col items-center gap-upload-option-gap text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span data-element="upload-option-icon-wrapper"
+                        class="flex items-center justify-center rounded-full bg-surface-disabled p-upload-option-icon-padding dark:bg-surface-disabledDark"
+                        aria-hidden="true">
+                        <img data-element="upload-option-icon" class="h-upload-option-icon w-upload-option-icon"
+                            src="https://i.ibb.co.com/3Y0vPys2/dropbox.webp" alt="" />
+                    </span>
+
+                    <span data-element="upload-option-copy" class="flex flex-col">
+                        <span data-element="upload-option-title"
+                            class="text-base text-text-primary dark:text-text-primaryDark">
+                            Dropbox
+                        </span>
+
+                        <span data-element="upload-option-status"
+                            class="text-xs leading-normal underline text-text-primary dark:text-text-primaryDark">
+                            Upload
+                        </span>
+                    </span>
+                </button>
+            </li>
+        </ul>
+
+        <!-- button-version - create-tag-button -->
+        <button type="button" data-component="create-tag-button" data-action="create-custom-tag" data-state="default"
+            data-variant="primary" data-size="sm"
+            class="inline-flex w-max items-center justify-center gap-button-gap rounded-pill bg-altButton px-tag-x-md py-tag-y text-sm font-semibold leading-tagSmall tracking-tagSmall text-text-inverse transition hover:bg-altButton/90 active:bg-altButton/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-altButton-dark dark:text-text-inverseDark">
+            <span data-element="button-label">
+                Create your own tags
+            </span>
+
+            <img data-element="button-icon" class="h-button-icon w-button-icon filter-icon-inverse"
+                src="https://i.ibb.co.com/zVHWJPfM/plus.webp" alt="" aria-hidden="true" />
+        </button>
+
+        <!-- search - empty -->
+        <form data-component="interest-search" data-state="empty" role="search"
+            class="group/search flex items-center gap-search-gap">
+            <div data-element="search-field"
+                class="flex w-full items-center gap-search-field-gap rounded-input border border-search-border bg-search-surface p-search-field-padding transition dark:border-search-borderDark dark:bg-search-surfaceDark">
+                <img data-element="search-icon" class="h-search-icon w-search-icon shrink-0 filter-icon-primary"
+                    src="https://i.ibb.co.com/XrnX4Z04/search-magnifying-glass.webp" alt="" aria-hidden="true" />
+
+                <input data-element="search-input"
+                    class="hide-search-cancel h-full w-full bg-transparent text-base font-medium text-text-heading outline-none placeholder:text-text-description focus:outline-none dark:text-text-headingDark dark:placeholder:text-text-descriptionDark"
+                    type="search" name="interest-search" autocomplete="off" aria-label="Search for interests"
+                    placeholder="Search for interests" />
+
+                <button type="button" data-action="clear-search" data-element="search-clear-button"
+                    class="hidden h-search-clear-icon w-search-clear-icon shrink-0 items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 group-data-[state=has-value]/search:inline-flex"
+                    aria-label="Clear search">
+                    <img data-element="search-clear-icon" class="h-full w-full filter-icon-primary"
+                        src="https://i.ibb.co.com/ZR7FxmMD/close-circle.webp" alt="" aria-hidden="true" />
+                </button>
+            </div>
+
+            <button type="button" data-action="close-search" data-element="search-close-button"
+                class="inline-flex shrink-0 items-center justify-center rounded-full bg-surface-page p-search-close-padding transition hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-surface-pageDark dark:hover:bg-surface-disabledDark"
+                aria-label="Close search">
+                <img data-element="search-close-icon"
+                    class="h-search-close-icon w-search-close-icon filter-icon-primary"
+                    src="https://i.ibb.co.com/hJfdxBR2/cross.webp" alt="" aria-hidden="true" />
+            </button>
+        </form>
+
+        <!-- search: has-value -->
+        <form data-component="interest-search" data-state="has-value" role="search"
+            class="group/search flex items-center gap-search-gap">
+            <div data-element="search-field"
+                class="flex w-full items-center gap-search-field-gap rounded-input border border-search-border bg-search-surface p-search-field-padding transition dark:border-search-borderDark dark:bg-search-surfaceDark">
+                <img data-element="search-icon" class="h-search-icon w-search-icon shrink-0 filter-icon-primary"
+                    src="https://i.ibb.co.com/XrnX4Z04/search-magnifying-glass.webp" alt="" aria-hidden="true" />
+
+                <input data-element="search-input"
+                    class="hide-search-cancel h-full w-full bg-transparent text-base font-medium text-text-heading outline-none placeholder:text-text-description focus:outline-none dark:text-text-headingDark dark:placeholder:text-text-descriptionDark"
+                    type="search" name="interest-search" autocomplete="off" aria-label="Search for interests"
+                    placeholder="Search for interests" value="Adv" />
+
+                <button type="button" data-action="clear-search" data-element="search-clear-button"
+                    class="hidden h-search-clear-icon w-search-clear-icon shrink-0 items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 group-data-[state=has-value]/search:inline-flex"
+                    aria-label="Clear search">
+                    <img data-element="search-clear-icon" class="h-full w-full filter-icon-primary"
+                        src="https://i.ibb.co.com/ZR7FxmMD/close-circle.webp" alt="" aria-hidden="true" />
+                </button>
+            </div>
+
+            <button type="button" data-action="close-search" data-element="search-close-button"
+                class="inline-flex shrink-0 items-center justify-center rounded-full bg-surface-page p-search-close-padding transition hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-surface-pageDark dark:hover:bg-surface-disabledDark"
+                aria-label="Close search">
+                <img data-element="search-close-icon"
+                    class="h-search-close-icon w-search-close-icon filter-icon-primary"
+                    src="https://i.ibb.co.com/hJfdxBR2/cross.webp" alt="" aria-hidden="true" />
+            </button>
+        </form>
+
+        <!-- notification-banner-container -->
+        <div class="relative w-full h-notification-container overflow-x-hidden">
+            <div data-component="notification-container"
+                class="absolute left-1/2 top-1/2 h-notification-container w-notification-container -translate-x-1/2 -translate-y-1/2 overflow-hidden">
+                <!-- background-pattern -->
+                <div aria-hidden="true"
+                    class="pointer-events-none absolute inset-0 bg-[url('https://i.ibb.co.com/YF7PyZJm/notification-banner-icon.webp')] bg-center opacity-5">
+                </div>
+
+                <!-- notification-content -->
+                <div class="relative z-upload-overlay">
                 </div>
             </div>
         </div>
