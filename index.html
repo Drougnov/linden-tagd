@@ -123,6 +123,64 @@
                             border: '#E5E6EB',
                             borderDark: '#363B3D',
                         },
+                        tabs: {
+                            active: '#005B96',
+                            activeDark: '#63C2FF',
+
+                            inactive: '#646464',
+                            inactiveDark: '#A9A296',
+
+                            border: '#005B96',
+                            borderDark: '#007FD2',
+                        },
+                        notification: {
+                            unread: '#005B96',
+                            unreadDark: '#00568D',
+
+                            match: {
+                                start: '#05609C',
+                                end: '#1473B1',
+                            },
+
+                            superLike: {
+                                start: '#6F5CE3',
+                                end: '#255BB0',
+                                text: '#8B5CF6',
+                                textDark: '#8C5DF6',
+                            },
+
+                            message: {
+                                start: '#009B96',
+                                end: '#006A96',
+                                text: '#0CAB9B',
+                                textDark: '#59F3E4',
+                            },
+
+                            boost: {
+                                start: '#FA8548',
+                                end: '#1473B1',
+                            },
+
+                            accent: {
+                                DEFAULT: '#005B96',
+                                dark: '#63C2FF',
+                            },
+                            profile: {
+                                border: '#F4F4F6',
+                                borderDark: '#1E2021',
+                            },
+                            system: {
+                                surface: '#0A1035',
+                                surfaceDark: '#0E174B',
+                            },
+
+                            badge: {
+                                surface: '#005B96',
+                                surfaceDark: '#00568D',
+                                text: '#FFFFFF',
+                                textDark: '#E8E6E3',
+                            },
+                        },
                     },
                     spacing: {
                         'page-x': '1rem',
@@ -165,6 +223,18 @@
                         'search-field-gap': '0.75rem',
                         'search-field-padding': '1rem',
                         'search-close-padding': '0.25rem',
+
+                        'tab-x': '1rem',
+                        'tab-y': '0.5rem',
+
+                        'notification-row-y': '0.75rem',
+                        'notification-row-x': '1rem',
+                        'notification-content-gap': '0.75rem',
+                        'notification-icon-size': '3.125rem',
+                        'notification-list-offset': '-1rem',
+                        'notification-text-offset': '1.25rem',
+                        'notification-title-gap': '0.375rem',
+                        'notification-meta-gap': '0.25rem',
                     },
                     borderRadius: {
                         pill: '6.25rem',
@@ -208,6 +278,10 @@
                         'search-close-icon': '1.25rem',
 
                         'notification-container': '26.5625rem',
+                        'notification-icon': '3.125rem',
+                        'notification-profile-stack': '3.125rem',
+                        'notification-profile-image': '1.875rem',
+                        'notification-badge': '1.25rem',
                     },
                     height: {
                         'progress-height': '0.5rem',
@@ -239,6 +313,10 @@
                         'search-close-icon': '1.25rem',
 
                         'notification-container': '26.5625rem',
+                        'notification-icon': '3.125rem',
+                        'notification-profile-stack': '2.375rem',
+                        'notification-profile-image': '1.875rem',
+                        'notification-badge': '1.25rem',
                     },
                     minWidth: {
                         'range-tooltip': '3.625rem',
@@ -267,6 +345,8 @@
                         status: '0.025rem',
 
                         tagSmall: '-0.000875rem',
+
+                        'tab': '0',
                     },
                     aspectRatio: {
                         uploadCard: '3 / 4',
@@ -274,6 +354,19 @@
                     zIndex: {
                         'upload-base': '0',
                         'upload-overlay': '1',
+                    },
+                    backgroundImage: {
+                        'notification-match':
+                            'linear-gradient(135deg,#05609C 14.5%,#1473B1 85.5%)',
+
+                        'notification-super-like':
+                            'linear-gradient(135deg,#6F5CE3 14.5%,#255BB0 85.5%)',
+
+                        'notification-message':
+                            'linear-gradient(135deg,#009B96 14.5%,#006A96 85.5%)',
+
+                        'notification-boost':
+                            'linear-gradient(135deg,#FA8548 14.5%,#1473B1 85.5%)',
                     },
                 },
             },
@@ -1044,10 +1137,316 @@
                 </div>
 
                 <!-- notification-content -->
-                <div class="relative z-upload-overlay">
-                </div>
+                <div class="relative z-upload-overlay"></div>
             </div>
         </div>
+
+        <!-- Scrollable Tabs/Links -->
+        <div class="scrollbar-hidden flex items-center overflow-x-auto" data-component="tabs" role="tablist">
+            <button class="flex shrink-0 items-center justify-center border-b border-transparent px-tab-x py-tab-y text-base font-semibold text-tabs-inactive transition
+        data-[state=active]:border-tabs-border
+        data-[state=active]:text-tabs-active
+        dark:data-[state=active]:border-tabs-borderDark
+        dark:data-[state=active]:text-tabs-activeDark
+        hover:text-tabs-active
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus" data-action="select-tab"
+                data-tab="all" data-state="active" role="tab" aria-selected="true">
+                All
+            </button>
+
+            <button class="flex shrink-0 items-center justify-center border-b border-transparent px-tab-x py-tab-y text-base font-semibold text-tabs-inactive transition
+        data-[state=active]:border-tabs-border
+        data-[state=active]:text-tabs-active
+        dark:data-[state=active]:border-tabs-borderDark
+        dark:data-[state=active]:text-tabs-activeDark
+        hover:text-tabs-active
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus" data-action="select-tab"
+                data-tab="matches" data-state="inactive" role="tab" aria-selected="false">
+                Matches
+            </button>
+
+            <button class="flex shrink-0 items-center justify-center border-b border-transparent px-tab-x py-tab-y text-base font-semibold text-tabs-inactive transition
+        data-[state=active]:border-tabs-border
+        data-[state=active]:text-tabs-active
+        dark:data-[state=active]:border-tabs-borderDark
+        dark:data-[state=active]:text-tabs-activeDark
+        hover:text-tabs-active
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus" data-action="select-tab"
+                data-tab="messages" data-state="inactive" role="tab" aria-selected="false">
+                Messages
+            </button>
+
+            <button class="flex shrink-0 items-center justify-center border-b border-transparent px-tab-x py-tab-y text-base font-semibold text-tabs-inactive transition
+        data-[state=active]:border-tabs-border
+        data-[state=active]:text-tabs-active
+        dark:data-[state=active]:border-tabs-borderDark
+        dark:data-[state=active]:text-tabs-activeDark
+        hover:text-tabs-active
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus" data-action="select-tab"
+                data-tab="likes" data-state="inactive" role="tab" aria-selected="false">
+                Likes
+            </button>
+
+            <button class="flex shrink-0 items-center justify-center border-b border-transparent px-tab-x py-tab-y text-base font-semibold text-tabs-inactive transition
+        data-[state=active]:border-tabs-border
+        data-[state=active]:text-tabs-active
+        dark:data-[state=active]:border-tabs-borderDark
+        dark:data-[state=active]:text-tabs-activeDark
+        hover:text-tabs-active
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus" data-action="select-tab"
+                data-tab="activity" data-state="inactive" role="tab" aria-selected="false">
+                Activity
+            </button>
+        </div>
+
+        <!-- Subtitle Alt 2 -->
+        <h2
+            class="text-xs font-semibold uppercase tracking-status text-text-description dark:text-text-descriptionDark">
+            Today
+        </h2>
+
+        <!-- Notification cards #1 -->
+        <div class="flex w-[calc(100%+2rem)] flex-col ml-notification-list-offset" data-component="notification-list">
+            <ul class="flex flex-col">
+
+                <!-- Match notification -->
+                <li>
+                    <a href="#" class="flex w-full items-center justify-between gap-2.5 px-notification-row-x py-notification-row-y text-left transition
+                data-[state=unread]:bg-notification-unread/10
+                dark:data-[state=unread]:bg-notification-unreadDark/10" data-component="notification-card"
+                        data-state="unread" data-action="open-notification"
+                        aria-label="New match notification from Sofia">
+                        <span class="flex min-w-0 max-w-[19rem] items-center gap-notification-content-gap">
+                            <span
+                                class="flex h-notification-icon w-notification-icon shrink-0 items-center justify-center rounded-full bg-notification-match">
+                                <img class="h-6 w-6" src="https://i.ibb.co.com/N2D1VbX6/heart.webp" alt="">
+                            </span>
+                            <span class="flex min-w-0 flex-col justify-center truncate">
+                                <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                                    It’s a match!
+                                </span>
+                                <span
+                                    class="truncate text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                                    You and
+                                    <span class="text-text-heading dark:text-text-headingDark">
+                                        Sofia
+                                    </span>
+                                    liked each other.
+                                    <span class="text-notification-accent dark:text-notification-accent-dark">
+                                        Say hello!
+                                    </span>
+                                </span>
+                            </span>
+                        </span>
+                        <time
+                            class="shrink-0 text-xs font-medium tracking-status text-text-description dark:text-text-descriptionDark"
+                            datetime="PT2M">
+                            2m ago
+                        </time>
+                    </a>
+                </li>
+
+                <!-- Super Like notification -->
+                <li>
+                    <a href="#"
+                        class="flex w-full items-center justify-between gap-2.5 px-notification-row-x py-notification-row-y text-left transition"
+                        data-component="notification-card" data-state="read" data-action="open-notification"
+                        aria-label="Super Like notification from Emma">
+                        <span class="flex min-w-0 max-w-[19rem] items-center gap-notification-content-gap">
+                            <span
+                                class="flex h-notification-icon w-notification-icon shrink-0 items-center justify-center rounded-full bg-notification-super-like">
+                                <img class="h-6 w-6" src="https://i.ibb.co.com/KpJsBj8j/star.webp" alt="">
+                            </span>
+                            <span class="flex min-w-0 flex-col justify-center truncate">
+                                <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                                    Super Like!
+                                </span>
+                                <span
+                                    class="truncate text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                                    <span class="text-text-heading dark:text-text-headingDark">
+                                        Emma
+                                    </span>
+                                    just sent you a
+                                    <span
+                                        class="text-notification-super-like-text dark:text-notification-super-like-text-dark">
+                                        Super Like
+                                    </span>.
+                                    You’re on her radar.
+                                </span>
+                            </span>
+                        </span>
+
+                        <time
+                            class="shrink-0 text-xs font-medium tracking-status text-text-description dark:text-text-descriptionDark"
+                            datetime="PT18M">
+                            18m ago
+                        </time>
+
+                    </a>
+                </li>
+
+                <!-- Message notification -->
+                <li>
+                    <a href="#" class="flex w-full items-center justify-between gap-2.5 px-notification-row-x py-notification-row-y text-left transition
+                data-[state=unread]:bg-notification-unread/10
+                dark:data-[state=unread]:bg-notification-unreadDark/10" data-component="notification-card"
+                        data-state="unread" data-action="open-notification"
+                        aria-label="New message notification from Zara">
+                        <span class="flex min-w-0 max-w-[19rem] items-center gap-notification-content-gap">
+                            <span
+                                class="flex h-notification-icon w-notification-icon shrink-0 items-center justify-center rounded-full bg-notification-message">
+                                <img class="h-6 w-6" src="https://i.ibb.co.com/8DBs0bkw/message.webp" alt="">
+                            </span>
+                            <span class="flex min-w-0 flex-col justify-center truncate">
+                                <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                                    Zara, 23
+                                </span>
+                                <span
+                                    class="truncate text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+
+                                    <span
+                                        class="text-notification-message-text dark:text-notification-message-text-dark">
+                                        New message:
+                                    </span>
+
+                                    <span class="text-text-heading dark:text-text-headingDark">
+                                        "Hey! I love your travel photos, have you been to the new restaurant downtown?"
+                                    </span>
+
+                                </span>
+                            </span>
+                        </span>
+
+                        <time
+                            class="shrink-0 text-xs font-medium tracking-status text-text-description dark:text-text-descriptionDark"
+                            datetime="PT1H">
+                            1h ago
+                        </time>
+                    </a>
+                </li>
+
+                <!-- Boost notification -->
+                <li>
+                    <a href="#" class="flex w-full items-center justify-between gap-2.5 px-notification-row-x py-notification-row-y text-left transition
+                data-[state=unread]:bg-notification-unread/10
+                dark:data-[state=unread]:bg-notification-unreadDark/10" data-component="notification-card"
+                        data-state="unread" data-action="open-notification" aria-label="Boost active notification">
+                        <span class="flex min-w-0 max-w-[19rem] items-center gap-notification-content-gap">
+                            <span
+                                class="flex h-notification-icon w-notification-icon shrink-0 items-center justify-center rounded-full bg-notification-boost">
+                                <img class="h-6 w-6" src="https://i.ibb.co.com/1tDx4T5v/lightening.webp" alt="">
+                            </span>
+                            <span class="flex min-w-0 flex-col justify-center truncate">
+                                <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                                    Boost Active
+                                </span>
+                                <span
+                                    class="truncate text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                                    Profile shown to
+                                    <span class="text-notification-accent dark:text-notification-accent-dark">
+                                        3x more people
+                                    </span>
+                                    right now. 28 new views so far!
+                                </span>
+                            </span>
+                        </span>
+
+                        <time
+                            class="shrink-0 text-xs font-medium tracking-status text-text-description dark:text-text-descriptionDark"
+                            datetime="PT1H">
+                            1h ago
+                        </time>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Notification card #2 -->
+        <div class="flex w-[calc(100%+2rem)] flex-col ml-notification-list-offset" data-component="notification-list">
+            <ul class="flex flex-col">
+                <!-- Profile view notification -->
+                <li>
+                    <a href="#"
+                        class="flex w-full items-center justify-between gap-2.5 px-notification-row-x py-notification-row-y text-left transition"
+                        data-component="notification-card" data-state="read" data-action="open-notification"
+                        aria-label="Profile views notification">
+                        <span class="flex min-w-0 max-w-[19rem] items-center gap-notification-content-gap">
+                            <!-- Profile image stack -->
+                            <span
+                                class="relative flex h-notification-profile-stack w-notification-profile-stack shrink-0"
+                                aria-hidden="true">
+                                <img class="absolute left-0 top-0 h-notification-profile-image w-notification-profile-image rounded-full border border-notification-profile-border dark:border-notification-profile-borderDark"
+                                    src="https://i.ibb.co.com/PsRtdzYW/profile-view-1.webp" alt="">
+                                <img class="absolute bottom-0 right-0 h-notification-profile-image w-notification-profile-image rounded-full border border-notification-profile-border dark:border-notification-profile-borderDark"
+                                    src="https://i.ibb.co.com/wND0Brrt/profile-view-2.webp" alt="">
+                            </span>
+
+                            <span class="flex min-w-0 flex-col justify-center">
+                                <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                                    Profile Views
+                                </span>
+                                <span
+                                    class="pr-notification-text-offset text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                                    12 people viewed your profile today. Upgrade to see who they are.
+                                </span>
+                            </span>
+                        </span>
+
+                        <time
+                            class="shrink-0 text-xs font-medium tracking-status text-text-description dark:text-text-descriptionDark"
+                            datetime="PT2H">
+                            2h ago
+                        </time>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Notification card #3 -->
+        <ul class="flex flex-col">
+            <!-- System notification -->
+            <li>
+                <a href="#"
+                    class="flex w-full items-center justify-between gap-2.5 px-notification-row-x py-notification-row-y text-left transition"
+                    data-component="notification-card" data-state="read" data-action="open-notification"
+                    aria-label="System notifications">
+                    <span class="flex min-w-0 max-w-[19rem] items-center gap-notification-content-gap">
+                        <span
+                            class="flex h-notification-icon w-notification-icon shrink-0 items-center justify-center rounded-full bg-notification-system-surface dark:bg-notification-system-surfaceDark"
+                            aria-hidden="true">
+                            <img class="h-6 w-6" src="https://i.ibb.co.com/m5HbZw29/system.webp" alt="">
+                        </span>
+
+                        <span class="flex min-w-0 flex-col justify-center gap-notification-meta-gap">
+                            <span class="flex items-center gap-notification-title-gap">
+                                <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                                    System Notifications
+                                </span>
+
+                                <span
+                                    class="flex h-notification-badge w-notification-badge items-center justify-center rounded-full bg-notification-badge-surface dark:bg-notification-badge-surfaceDark">
+                                    <span
+                                        class="text-xs font-medium tracking-status text-notification-badge-text dark:text-notification-badge-textDark">
+                                        3
+                                    </span>
+                                </span>
+                            </span>
+
+                            <span
+                                class="text-xs font-semibold leading-normal text-text-description dark:text-text-descriptionDark">
+                                You have a new system notification
+                            </span>
+                        </span>
+                    </span>
+
+                    <time
+                        class="shrink-0 text-xs font-medium tracking-status text-text-description dark:text-text-descriptionDark"
+                        datetime="P1D">
+                        1d ago
+                    </time>
+                </a>
+            </li>
+        </ul>
     </main>
 
 
