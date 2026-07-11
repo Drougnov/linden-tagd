@@ -1403,50 +1403,52 @@
         </div>
 
         <!-- Notification card #3 -->
-        <ul class="flex flex-col">
-            <!-- System notification -->
-            <li>
-                <a href="#"
-                    class="flex w-full items-center justify-between gap-2.5 px-notification-row-x py-notification-row-y text-left transition"
-                    data-component="notification-card" data-state="read" data-action="open-notification"
-                    aria-label="System notifications">
-                    <span class="flex min-w-0 max-w-[19rem] items-center gap-notification-content-gap">
-                        <span
-                            class="flex h-notification-icon w-notification-icon shrink-0 items-center justify-center rounded-full bg-notification-system-surface dark:bg-notification-system-surfaceDark"
-                            aria-hidden="true">
-                            <img class="h-6 w-6" src="https://i.ibb.co.com/m5HbZw29/system.webp" alt="">
-                        </span>
+        <div class="flex w-[calc(100%+2rem)] flex-col ml-notification-list-offset" data-component="notification-list">
+            <ul class="flex flex-col">
+                <!-- System notification -->
+                <li>
+                    <a href="#"
+                        class="flex w-full items-center justify-between gap-2.5 px-notification-row-x py-notification-row-y text-left transition"
+                        data-component="notification-card" data-state="read" data-action="open-notification"
+                        aria-label="System notifications">
+                        <span class="flex min-w-0 max-w-[19rem] items-center gap-notification-content-gap">
+                            <span
+                                class="flex h-notification-icon w-notification-icon shrink-0 items-center justify-center rounded-full bg-notification-system-surface dark:bg-notification-system-surfaceDark"
+                                aria-hidden="true">
+                                <img class="h-6 w-6" src="https://i.ibb.co.com/m5HbZw29/system.webp" alt="">
+                            </span>
 
-                        <span class="flex min-w-0 flex-col justify-center gap-notification-meta-gap">
-                            <span class="flex items-center gap-notification-title-gap">
-                                <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
-                                    System Notifications
+                            <span class="flex min-w-0 flex-col justify-center gap-notification-meta-gap">
+                                <span class="flex items-center gap-notification-title-gap">
+                                    <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                                        System Notifications
+                                    </span>
+
+                                    <span
+                                        class="flex h-notification-badge w-notification-badge items-center justify-center rounded-full bg-notification-badge-surface dark:bg-notification-badge-surfaceDark">
+                                        <span
+                                            class="text-xs font-medium tracking-status text-notification-badge-text dark:text-notification-badge-textDark">
+                                            3
+                                        </span>
+                                    </span>
                                 </span>
 
                                 <span
-                                    class="flex h-notification-badge w-notification-badge items-center justify-center rounded-full bg-notification-badge-surface dark:bg-notification-badge-surfaceDark">
-                                    <span
-                                        class="text-xs font-medium tracking-status text-notification-badge-text dark:text-notification-badge-textDark">
-                                        3
-                                    </span>
+                                    class="text-xs font-semibold leading-normal text-text-description dark:text-text-descriptionDark">
+                                    You have a new system notification
                                 </span>
                             </span>
-
-                            <span
-                                class="text-xs font-semibold leading-normal text-text-description dark:text-text-descriptionDark">
-                                You have a new system notification
-                            </span>
                         </span>
-                    </span>
 
-                    <time
-                        class="shrink-0 text-xs font-medium tracking-status text-text-description dark:text-text-descriptionDark"
-                        datetime="P1D">
-                        1d ago
-                    </time>
-                </a>
-            </li>
-        </ul>
+                        <time
+                            class="shrink-0 text-xs font-medium tracking-status text-text-description dark:text-text-descriptionDark"
+                            datetime="P1D">
+                            1d ago
+                        </time>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </main>
 
 
