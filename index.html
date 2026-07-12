@@ -213,6 +213,37 @@
                             popular: '#E45346',
                             popularDark: '#9B2217',
                         },
+                        textarea: {
+                            border: '#011F4B',
+                            borderDark: '#7F7669',
+
+                            background: '#FFFFFF',
+                            backgroundDark: '#181A1B',
+
+                            focus: '#005B96',
+                            focusDark: '#007FD2',
+                        },
+                        badge: {
+                            primary: '#005B96',
+                            primaryDark: '#00568D',
+                        },
+                        progressAvatar: {
+                            track: '#9EA3AE',
+                            fill: '#00649B',
+                        },
+                        chat: {
+                            online: '#08B161',
+                            onlineDark: '#079B55',
+
+                            offline: '#011F4B',
+                            offlineDark: '#01275F',
+
+                            badge: '#E5E6EB',
+                            badgeDark: '#25282A',
+
+                            progressTrack: '#9EA3AE',
+                            progressFill: '#00649B',
+                        },
                     },
                     spacing: {
                         'page-x': '1rem',
@@ -288,12 +319,26 @@
                         'gift-badge-offset': '0.5rem',
                         'gift-badge-width': '4.704rem',
                         'gift-selected-icon-padding': '0.25rem',
+
+                        'textarea-padding': '1rem',
+                        'textarea-min-height': '5rem',
+
+                        'badge-size': '1.25rem',
+
+                        'pending-match-gap': '0.5rem',
+
+                        'chat-list-gap': '1rem',
+                        'chat-item-gap': '0.5rem',
+                        'chat-avatar-gap': '0.5rem',
+                        'chat-text-gap': '0.25rem',
+                        'chat-badge-gap': '0.25rem',
                     },
                     borderRadius: {
                         pill: '6.25rem',
                         buttonSoft: '2rem',
                         input: '1rem',
                         checkbox: '0.25rem',
+                        textarea: '1rem',
                     },
                     width: {
                         'progress-step-1-of-9': '11.111111%',
@@ -346,6 +391,17 @@
 
                         'gift-icon': '3.125rem',
                         'gift-badge': '4.704rem',
+
+                        'badge-size': '1.25rem',
+
+                        'pending-avatar-container': '4.5625rem',
+                        'pending-avatar-image': '3.3125rem',
+
+                        'chat-avatar': '3.125rem',
+                        'chat-progress-avatar': '3.125rem',
+                        'chat-progress-image': '2.5rem',
+                        'chat-status-dot': '0.75rem',
+                        'chat-verified-dot': '0.625rem',
                     },
                     height: {
                         'progress-height': '0.5rem',
@@ -392,6 +448,19 @@
 
                         'gift-icon': '3.125rem',
                         'gift-image': '6.125rem',
+
+                        'textarea-min': '5rem',
+
+                        'badge-size': '1.25rem',
+
+                        'pending-avatar-container': '4.5625rem',
+                        'pending-avatar-image': '3.3125rem',
+
+                        'chat-avatar': '3.125rem',
+                        'chat-progress-avatar': '3.125rem',
+                        'chat-progress-image': '2.5rem',
+                        'chat-status-dot': '0.75rem',
+                        'chat-verified-dot': '0.625rem',
                     },
                     minWidth: {
                         'range-tooltip': '3.625rem',
@@ -417,6 +486,7 @@
                         description: '1.375rem',
                         tagSmall: '1.125rem',
                         'empty-title': '1.875rem',
+                        'subtitle': '1.625rem',
                     },
                     letterSpacing: {
                         button: '-0.002rem',
@@ -450,7 +520,15 @@
                     },
                     rotate: {
                         'gift-badge': '39.61deg',
-                    }
+                    },
+                    opacity: {
+                        'subtitle-muted': '74%',
+                    },
+                    strokeWidth: {
+                        progressAvatar: {
+                            DEFAULT: '2.5',
+                        },
+                    },
                 },
             },
             plugins: [
@@ -545,7 +623,7 @@
 </head>
 
 
-<body class="min-h-screen overflow-y-auto bg-surface-page p-0 m-0 font-sans dark:bg-surface-pageDark">
+<body class="min-h-screen overflow-x-hidden overflow-y-auto bg-surface-page p-0 m-0 font-sans dark:bg-surface-pageDark">
 
     <!-- components-wrapper (added demo max-width and padding for mobile) -->
     <main data-component="wrapper" class="flex w-full flex-col gap-component-gap p-page-x max-w-[24.375rem]">
@@ -1788,11 +1866,390 @@
                     class="px-gift-card-padding-x py-gift-card-padding-y text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
                     Luxurious Ring
                 </span>
-
             </button>
         </div>
-    </main>
 
+        <!-- textarea -->
+        <textarea data-component="textarea" data-state="default" data-element="textarea" aria-label="Message"
+            class="min-h-textarea-min-height p-textarea-padding border-2 rounded-textarea bg-textarea-background text-base text-text-heading placeholder:text-text-description transition resize-none border-textarea-border focus:outline-none focus:border-textarea-focus dark:bg-textarea-backgroundDark dark:border-textarea-borderDark dark:text-text-headingDark dark:placeholder:text-text-descriptionDark dark:focus:border-textarea-focusDark">Hello, how are you doing</textarea>
+
+        <!-- subtitle-alt-3 -->
+        <h3 data-component="section-subtitle"
+            class="text-sm font-semibold leading-description text-text-heading opacity-subtitle-muted dark:text-text-headingDark">
+            Yesterday
+        </h3>
+
+        <h2 data-component="section-heading"
+            class="text-lg font-semibold leading-subtitle text-text-heading dark:text-text-headingDark">
+            Expiring Matches
+        </h2>
+
+        <div data-component="section-heading-with-count" class="flex items-center gap-2">
+            <h2 class="text-lg font-semibold leading-subtitle text-text-heading dark:text-text-headingDark">
+                Chats
+            </h2>
+
+            <span aria-label="3 unread chats"
+                class="flex h-badge-size w-badge-size items-center justify-center rounded-full bg-badge-primary">
+                <span class="text-xs font-medium tracking-status text-white dark:text-text-inverseDark">
+                    3
+                </span>
+            </span>
+        </div>
+
+        <!-- pending-matches -->
+        <div data-component="pending-matches" class="flex items-center gap-pending-match-gap">
+            <!-- pending-match-avatar -->
+            <div data-progress="40" style="--progress:40"
+                class="relative flex h-pending-avatar-container w-pending-avatar-container items-center justify-center">
+                <svg viewBox="0 0 73 73" class="absolute inset-0 h-full w-full" aria-hidden="true">
+                    <!-- progress-track -->
+                    <circle cx="36.5" cy="36.5" r="34" pathLength="100" fill="none" stroke="#9EA3AE"
+                        stroke-width="2.5" />
+
+                    <!-- progress-fill -->
+                    <circle cx="36.5" cy="36.5" r="34" pathLength="100" fill="none" stroke="#00649B" stroke-width="2.5"
+                        stroke-linecap="round" transform="rotate(90 36.5 36.5) translate(73 0) scale(-1 1)" style="
+                    stroke-dasharray: var(--progress) calc(100 - var(--progress));
+                    stroke-dashoffset: 0;
+                " />
+                </svg>
+
+                <img class="h-pending-avatar-image w-pending-avatar-image rounded-full object-cover"
+                    src="https://i.ibb.co.com/CC3BrJq/uploaded-photo-2.webp" alt="Profile photo" />
+            </div>
+
+            <!-- pending-match-avatar -->
+            <div data-progress="65" style="--progress:65"
+                class="relative flex h-pending-avatar-container w-pending-avatar-container items-center justify-center">
+                <svg viewBox="0 0 73 73" class="absolute inset-0 h-full w-full" aria-hidden="true">
+                    <!-- progress-track -->
+                    <circle cx="36.5" cy="36.5" r="34" pathLength="100" fill="none" stroke="#9EA3AE"
+                        stroke-width="2.5" />
+
+                    <!-- progress-fill -->
+                    <circle cx="36.5" cy="36.5" r="34" pathLength="100" fill="none" stroke="#00649B" stroke-width="2.5"
+                        stroke-linecap="round" transform="rotate(90 36.5 36.5) translate(73 0) scale(-1 1)" style="
+                    stroke-dasharray: var(--progress) calc(100 - var(--progress));
+                    stroke-dashoffset: 0;
+                " />
+                </svg>
+
+                <img class="h-pending-avatar-image w-pending-avatar-image rounded-full object-cover"
+                    src="https://i.ibb.co.com/jPdkxSN5/uploaded-photo-3.webp" alt="uploaded photo 3" />
+            </div>
+
+            <!-- pending-match-avatar -->
+            <div data-progress="45" style="--progress:45"
+                class="relative flex h-pending-avatar-container w-pending-avatar-container items-center justify-center">
+                <svg viewBox="0 0 73 73" class="absolute inset-0 h-full w-full" aria-hidden="true">
+                    <!-- progress-track -->
+                    <circle cx="36.5" cy="36.5" r="34" pathLength="100" fill="none" stroke="#9EA3AE"
+                        stroke-width="2.5" />
+
+                    <!-- progress-fill -->
+                    <circle cx="36.5" cy="36.5" r="34" pathLength="100" fill="none" stroke="#00649B" stroke-width="2.5"
+                        stroke-linecap="round" transform="rotate(90 36.5 36.5) translate(73 0) scale(-1 1)" style="
+                    stroke-dasharray: var(--progress) calc(100 - var(--progress));
+                    stroke-dashoffset: 0;
+                " />
+                </svg>
+
+                <img class="h-pending-avatar-image w-pending-avatar-image rounded-full object-cover"
+                    src="https://i.ibb.co.com/svfKMZwM/uploaded-photo-4.webp" alt="uploaded photo 4" />
+            </div>
+
+            <!-- pending-match-avatar -->
+            <div data-progress="85" style="--progress:85"
+                class="relative flex h-pending-avatar-container w-pending-avatar-container items-center justify-center">
+                <svg viewBox="0 0 73 73" class="absolute inset-0 h-full w-full" aria-hidden="true">
+                    <!-- progress-track -->
+                    <circle cx="36.5" cy="36.5" r="34" pathLength="100" fill="none" stroke="#9EA3AE"
+                        stroke-width="2.5" />
+
+                    <!-- progress-fill -->
+                    <circle cx="36.5" cy="36.5" r="34" pathLength="100" fill="none" stroke="#00649B" stroke-width="2.5"
+                        stroke-linecap="round" transform="rotate(90 36.5 36.5) translate(73 0) scale(-1 1)" style="
+                    stroke-dasharray: var(--progress) calc(100 - var(--progress));
+                    stroke-dashoffset: 0;
+                " />
+                </svg>
+
+                <img class="h-pending-avatar-image w-pending-avatar-image rounded-full object-cover"
+                    src="https://i.ibb.co.com/sp4qnKfH/uploaded-photo-5.webp" alt="uploaded photo 5" />
+            </div>
+
+            <!-- pending-match-avatar -->
+            <div data-progress="55" style="--progress:55"
+                class="relative flex h-pending-avatar-container w-pending-avatar-container items-center justify-center">
+                <svg viewBox="0 0 73 73" class="absolute inset-0 h-full w-full" aria-hidden="true">
+                    <!-- progress-track -->
+                    <circle cx="36.5" cy="36.5" r="34" pathLength="100" fill="none" stroke="#9EA3AE"
+                        stroke-width="2.5" />
+
+                    <!-- progress-fill -->
+                    <circle cx="36.5" cy="36.5" r="34" pathLength="100" fill="none" stroke="#00649B" stroke-width="2.5"
+                        stroke-linecap="round" transform="rotate(90 36.5 36.5) translate(73 0) scale(-1 1)" style="
+                    stroke-dasharray: var(--progress) calc(100 - var(--progress));
+                    stroke-dashoffset: 0;
+                " />
+                </svg>
+
+                <img class="h-pending-avatar-image w-pending-avatar-image rounded-full object-cover"
+                    src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="uploaded photo" />
+            </div>
+        </div>
+
+        <!-- chat-list -->
+        <ul data-component="chat-list" class="flex flex-col gap-component-gap">
+            <!-- chat-item-1 -->
+            <li>
+                <button type="button" data-action="open-chat" data-chat-id="john-doe"
+                    class="flex w-full items-center gap-button-gap text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <!-- avatar -->
+                    <span class="relative flex h-chat-avatar w-chat-avatar shrink-0 items-center justify-center">
+                        <img class="h-full w-full rounded-full object-cover"
+                            src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="John Doe profile photo" />
+                        <!-- online-status -->
+                        <span aria-label="Online"
+                            class="absolute bottom-0 right-0 h-chat-status-dot w-chat-status-dot rounded-full border border-white bg-chat-online dark:border-surface-pageDark dark:bg-chat-onlineDark"></span>
+                    </span>
+
+                    <!-- content -->
+                    <span class="flex min-w-0 flex-1 flex-col gap-1">
+                        <span class="flex items-center gap-2">
+                            <span class="flex items-center gap-1">
+                                <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                                    John Doe
+                                </span>
+
+                                <span aria-label="Verified"
+                                    class="h-chat-verified-dot w-chat-verified-dot rounded-full bg-chat-online dark:bg-chat-onlineDark"></span>
+                            </span>
+
+                            <span class="rounded-pill flex justify-center items-center bg-chat-badge px-2 h-5">
+                                <span
+                                    class="text-[0.625rem] leading-[0.75rem] text-text-heading dark:text-text-headingDark">
+                                    Chat request
+                                </span>
+                            </span>
+                        </span>
+
+                        <span
+                            class="truncate text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                            Hello how are you doing
+                        </span>
+                    </span>
+
+                    <time class="shrink-0 text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                        2m ago
+                    </time>
+                </button>
+            </li>
+
+            <!-- chat-item-2 -->
+            <li>
+                <button type="button" data-action="open-chat" data-chat-id="emily-clark"
+                    class="flex w-full items-center gap-button-gap text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <!-- progress-avatar -->
+                    <span style="--progress:68;"
+                        class="relative flex h-chat-avatar w-chat-avatar shrink-0 items-center justify-center">
+                        <svg viewBox="0 0 50 50" class="absolute inset-0 h-full w-full" aria-hidden="true">
+                            <circle cx="25" cy="25" r="23.5" pathLength="100" fill="none" stroke="#9EA3AE"
+                                stroke-width="2" />
+                            <circle cx="25" cy="25" r="23.5" pathLength="100" fill="none" stroke="#00649B"
+                                stroke-width="2" stroke-linecap="round"
+                                transform="rotate(90 25 25) translate(50 0) scale(-1 1)" style="
+                            stroke-dasharray: var(--progress) calc(100 - var(--progress));
+                            stroke-dashoffset:0;
+                        " />
+                        </svg>
+
+                        <img class="h-chat-progress-image w-chat-progress-image rounded-full object-cover"
+                            src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="Emily Clark profile photo" />
+                    </span>
+
+                    <span class="flex min-w-0 flex-1 flex-col gap-1">
+                        <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                            Emily Clark
+                        </span>
+
+                        <span
+                            class="truncate text-sm leading-description text-text-description dark:text-text-descriptionDark">
+                            Hi John, I love your travel photos!
+                        </span>
+                    </span>
+
+                    <time class="shrink-0 text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                        30m ago
+                    </time>
+                </button>
+            </li>
+
+            <!-- chat-item-3 -->
+            <li>
+                <button type="button" data-action="open-chat" data-chat-id="michael-smith"
+                    class="flex w-full items-center gap-button-gap text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span class="relative flex h-chat-avatar w-chat-avatar shrink-0">
+                        <img class="h-full w-full rounded-full object-cover"
+                            src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="Michael Smith profile photo" />
+                    </span>
+
+                    <span class="flex min-w-0 flex-1 flex-col gap-1">
+                        <span class="flex items-center gap-2">
+                            <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                                Michael Smith
+                            </span>
+
+                            <span class="rounded-pill flex justify-center items-center bg-chat-badge px-2 h-5">
+                                <span
+                                    class="text-[0.625rem] leading-[0.75rem] text-text-heading dark:text-text-headingDark">
+                                    New chat
+                                </span>
+                            </span>
+                        </span>
+
+                        <span
+                            class="truncate text-sm leading-description text-text-description dark:text-text-descriptionDark">
+                            Hey! Want to grab coffee sometime?
+                        </span>
+                    </span>
+
+                    <time class="shrink-0 text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                        2h ago
+                    </time>
+                </button>
+            </li>
+
+            <!-- chat-item-4 -->
+            <li>
+                <button type="button" data-action="open-chat" data-chat-id="sophie-lee"
+                    class="flex w-full items-center gap-button-gap text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span class="relative flex h-chat-avatar w-chat-avatar shrink-0">
+                        <img class="h-full w-full rounded-full object-cover"
+                            src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="Sophie Lee profile photo" />
+
+                        <span aria-label="Online"
+                            class="absolute bottom-0 right-0 h-chat-status-dot w-chat-status-dot rounded-full border border-white bg-chat-online dark:border-surface-pageDark dark:bg-chat-onlineDark"></span>
+                    </span>
+
+                    <span class="flex min-w-0 flex-1 flex-col gap-1">
+                        <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                            Sophie Lee
+                        </span>
+
+                        <span
+                            class="truncate text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                            Your taste in music is amazing!
+                        </span>
+                    </span>
+
+                    <time class="shrink-0 text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                        1d ago
+                    </time>
+                </button>
+            </li>
+
+            <!-- chat-item-5 -->
+            <li>
+                <button type="button" data-action="open-chat" data-chat-id="olivia-martinez"
+                    class="flex w-full items-center gap-button-gap text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <!-- avatar -->
+                    <span class="relative flex h-chat-avatar w-chat-avatar shrink-0">
+                        <img class="h-full w-full rounded-full object-cover"
+                            src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp"
+                            alt="Olivia Martinez profile photo" />
+
+                        <span aria-label="Online"
+                            class="absolute bottom-0 right-0 h-chat-status-dot w-chat-status-dot rounded-full border border-white bg-chat-online dark:border-surface-pageDark dark:bg-chat-onlineDark"></span>
+                    </span>
+
+                    <!-- content -->
+                    <span class="flex min-w-0 flex-1 flex-col gap-1">
+                        <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                            Olivia Martinez
+                        </span>
+
+                        <span
+                            class="truncate text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                            Hey John, your dog is adorable!
+                        </span>
+                    </span>
+
+                    <time class="shrink-0 text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                        5d ago
+                    </time>
+                </button>
+            </li>
+
+            <!-- chat-item-6 -->
+            <li>
+                <button type="button" data-action="open-chat" data-chat-id="david-patel"
+                    class="flex w-full items-center gap-button-gap text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <!-- avatar -->
+                    <span class="relative flex h-chat-avatar w-chat-avatar shrink-0">
+                        <img class="h-full w-full rounded-full object-cover"
+                            src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="David Patel profile photo" />
+
+                        <span aria-label="Online"
+                            class="absolute bottom-0 right-0 h-chat-status-dot w-chat-status-dot rounded-full border border-white bg-chat-online dark:border-surface-pageDark dark:bg-chat-onlineDark"></span>
+                    </span>
+
+                    <!-- content -->
+                    <span class="flex min-w-0 flex-1 flex-col gap-1">
+                        <span class="flex items-center gap-1">
+                            <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                                David Patel
+                            </span>
+
+                            <span aria-label="Verified"
+                                class="h-chat-verified-dot w-chat-verified-dot rounded-full bg-chat-online dark:bg-chat-onlineDark"></span>
+                        </span>
+
+                        <span
+                            class="truncate text-sm leading-description text-text-description dark:text-text-descriptionDark">
+                            Hello, want to chat about our favorite books?
+                        </span>
+                    </span>
+
+                    <time class="shrink-0 text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                        3d ago
+                    </time>
+                </button>
+            </li>
+
+            <!-- chat-item-7 -->
+            <li>
+                <button type="button" data-action="open-chat" data-chat-id="sophie-lee-2"
+                    class="flex w-full items-center gap-button-gap text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <!-- avatar -->
+                    <span class="relative flex h-chat-avatar w-chat-avatar shrink-0">
+                        <img class="h-full w-full rounded-full object-cover"
+                            src="https://i.ibb.co.com/G3P7dB6Z/uploaded-photo.webp" alt="Sophie Lee profile photo" />
+
+                        <span aria-label="Offline"
+                            class="absolute bottom-0 right-0 h-chat-status-dot w-chat-status-dot rounded-full border border-white bg-chat-offline dark:border-surface-pageDark dark:bg-chat-offlineDark"></span>
+                    </span>
+
+                    <!-- content -->
+                    <span class="flex min-w-0 flex-1 flex-col gap-1">
+                        <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                            Sophie Lee
+                        </span>
+
+                        <span
+                            class="truncate text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                            Your taste in music is amazing!
+                        </span>
+                    </span>
+
+                    <time class="shrink-0 text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                        1w ago
+                    </time>
+                </button>
+            </li>
+        </ul>
+    </main>
 
 </body>
 
