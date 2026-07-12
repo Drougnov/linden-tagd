@@ -173,13 +173,45 @@
                                 surface: '#0A1035',
                                 surfaceDark: '#0E174B',
                             },
-
                             badge: {
                                 surface: '#005B96',
                                 surfaceDark: '#00568D',
                                 text: '#FFFFFF',
                                 textDark: '#E8E6E3',
                             },
+                            empty: {
+                                surface: '#E5E6EB',
+                                surfaceDark: '#25282A',
+                            },
+                        },
+                        footer: {
+                            surface: '#F9FAFB',
+                            surfaceDark: '#1B1D1E',
+
+                            inactive: '#646464',
+                            inactiveDark: '#A9A296',
+
+                            active: '#005B96',
+                            activeDark: '#63C2FF',
+
+                            badge: '#FA003F',
+                            badgeDark: '#C90033',
+                        },
+                        gift: {
+                            surface: '#F9FAFB',
+                            surfaceDark: '#1B1D1E',
+
+                            border: '#E5E6EB',
+                            borderDark: '#363B3D',
+
+                            selectedBorder: '#011F4B',
+                            selectedBorderDark: '#7F7669',
+
+                            accent: '#005B96',
+                            accentDark: '#00568D',
+
+                            popular: '#E45346',
+                            popularDark: '#9B2217',
                         },
                     },
                     spacing: {
@@ -235,6 +267,27 @@
                         'notification-text-offset': '1.25rem',
                         'notification-title-gap': '0.375rem',
                         'notification-meta-gap': '0.25rem',
+
+                        'footer-padding-x': '1rem',
+                        'footer-padding-y': '0.5rem',
+                        'footer-item-gap': '0.5rem',
+
+                        'empty-state-gap': '1rem',
+                        'empty-state-content-gap': '0.5rem',
+
+                        'report-list-offset': '-1rem',
+                        'report-item-x': '1rem',
+                        'report-item-y': '0.75rem',
+                        'report-item-gap': '0.5rem',
+
+                        'gift-card-padding-x': '0.5rem',
+                        'gift-card-padding-y': '0.375rem',
+
+                        'gift-image-height': '6.125rem',
+
+                        'gift-badge-offset': '0.5rem',
+                        'gift-badge-width': '4.704rem',
+                        'gift-selected-icon-padding': '0.25rem',
                     },
                     borderRadius: {
                         pill: '6.25rem',
@@ -282,6 +335,17 @@
                         'notification-profile-stack': '3.125rem',
                         'notification-profile-image': '1.875rem',
                         'notification-badge': '1.25rem',
+
+                        'footer-icon': '1.5rem',
+                        'footer-badge': '0.625rem',
+
+                        'empty-state-icon-container': '3.75rem',
+                        'empty-state-icon': '2rem',
+
+                        'report-icon': '1.25rem',
+
+                        'gift-icon': '3.125rem',
+                        'gift-badge': '4.704rem',
                     },
                     height: {
                         'progress-height': '0.5rem',
@@ -317,6 +381,17 @@
                         'notification-profile-stack': '2.375rem',
                         'notification-profile-image': '1.875rem',
                         'notification-badge': '1.25rem',
+
+                        'footer-icon': '1.5rem',
+                        'footer-badge': '0.625rem',
+
+                        'empty-state-icon-container': '3.75rem',
+                        'empty-state-icon': '2rem',
+
+                        'report-icon': '1.25rem',
+
+                        'gift-icon': '3.125rem',
+                        'gift-image': '6.125rem',
                     },
                     minWidth: {
                         'range-tooltip': '3.625rem',
@@ -332,11 +407,16 @@
                         'range-tooltip-arrow-bottom': '-0.4375rem',
 
                         'category-selected-icon-offset': '0.5rem',
+
+                        'footer-badge-offset': '0',
+
+                        'gift-badge-top': '0.5rem',
+                        'gift-badge-right': '-1.25rem',
                     },
                     lineHeight: {
                         description: '1.375rem',
-
                         tagSmall: '1.125rem',
+                        'empty-title': '1.875rem',
                     },
                     letterSpacing: {
                         button: '-0.002rem',
@@ -368,6 +448,9 @@
                         'notification-boost':
                             'linear-gradient(135deg,#FA8548 14.5%,#1473B1 85.5%)',
                     },
+                    rotate: {
+                        'gift-badge': '39.61deg',
+                    }
                 },
             },
             plugins: [
@@ -380,6 +463,14 @@
                         '.scrollbar-hidden::-webkit-scrollbar': {
                             display: 'none',
                         },
+                        '.hide-search-cancel': {
+                            '-webkit-appearance': 'none',
+                            'appearance': 'none',
+                        },
+                        '.hide-search-cancel::-webkit-search-cancel-button': {
+                            '-webkit-appearance': 'none',
+                            'appearance': 'none',
+                        },
                         '.filter-upload-option-icon': {
                             filter: 'brightness(0) saturate(100%) invert(9%) sepia(9%) saturate(2578%) hue-rotate(182deg) brightness(93%) contrast(91%)',
                         },
@@ -389,13 +480,11 @@
                         '.filter-icon-inverse': {
                             filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1%) hue-rotate(241deg) brightness(113%) contrast(101%)',
                         },
-                        '.hide-search-cancel': {
-                            '-webkit-appearance': 'none',
-                            'appearance': 'none',
+                        '.filter-footer-inactive': {
+                            filter: 'brightness(0) saturate(100%) invert(39%) sepia(9%) saturate(0%) hue-rotate(179deg) brightness(95%) contrast(88%)',
                         },
-                        '.hide-search-cancel::-webkit-search-cancel-button': {
-                            '-webkit-appearance': 'none',
-                            'appearance': 'none',
+                        '.filter-footer-active': {
+                            filter: 'brightness(0) saturate(100%) invert(23%) sepia(88%) saturate(1449%) hue-rotate(180deg) brightness(95%) contrast(103%)',
                         },
                     });
                 },
@@ -1448,6 +1537,259 @@
                     </a>
                 </li>
             </ul>
+        </div>
+
+        <!-- mobile-footer -->
+        <footer data-component="mobile-footer"
+            class="w-full overflow-hidden bg-footer-surface px-footer-padding-x py-footer-padding-y dark:bg-footer-surfaceDark">
+            <div role="tablist" aria-label="Mobile footer navigation" class="flex items-center">
+
+                <!-- Discover -->
+                <button type="button" role="tab" aria-selected="false" data-action="change-footer-tab"
+                    data-tab="discover" data-state="inactive"
+                    class="group/footer-item flex flex-1 flex-col items-center gap-footer-item-gap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span class="relative flex h-footer-icon w-footer-icon">
+                        <img class="h-full w-full filter-footer-inactive group-data-[state=active]/footer-item:filter-footer-active"
+                            src="https://i.ibb.co.com/N02766F/discover-mobile-footer.webp" alt="" aria-hidden="true">
+                    </span>
+
+                    <span
+                        class="text-xs leading-normal text-footer-inactive group-data-[state=active]/footer-item:font-semibold group-data-[state=active]/footer-item:text-footer-active dark:text-footer-inactiveDark dark:group-data-[state=active]/footer-item:text-footer-activeDark">
+                        Discover
+                    </span>
+                </button>
+
+
+                <!-- Rooms -->
+                <button type="button" role="tab" aria-selected="false" data-action="change-footer-tab" data-tab="rooms"
+                    data-state="inactive"
+                    class="group/footer-item flex flex-1 flex-col items-center gap-footer-item-gap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span class="relative flex h-footer-icon w-footer-icon">
+                        <img class="h-full w-full filter-footer-inactive group-data-[state=active]/footer-item:filter-footer-active"
+                            src="https://i.ibb.co.com/3yWNGVP8/rooms-mobile-footer.webp" alt="" aria-hidden="true">
+                    </span>
+
+                    <span
+                        class="text-xs leading-normal text-footer-inactive group-data-[state=active]/footer-item:font-semibold group-data-[state=active]/footer-item:text-footer-active dark:text-footer-inactiveDark dark:group-data-[state=active]/footer-item:text-footer-activeDark">
+                        Rooms
+                    </span>
+                </button>
+
+
+                <!-- Likes -->
+                <button type="button" role="tab" aria-selected="false" data-action="change-footer-tab" data-tab="likes"
+                    data-state="inactive"
+                    class="group/footer-item flex flex-1 flex-col items-center gap-footer-item-gap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span class="relative flex h-footer-icon w-footer-icon">
+                        <img class="h-full w-full filter-footer-inactive group-data-[state=active]/footer-item:filter-footer-active"
+                            src="https://i.ibb.co.com/Rp99L42Q/likes-mobile-footer.webp" alt="" aria-hidden="true">
+                    </span>
+
+                    <span
+                        class="text-xs leading-normal text-footer-inactive group-data-[state=active]/footer-item:font-semibold group-data-[state=active]/footer-item:text-footer-active dark:text-footer-inactiveDark dark:group-data-[state=active]/footer-item:text-footer-activeDark">
+                        Likes
+                    </span>
+                </button>
+
+
+                <!-- Chat -->
+                <button type="button" role="tab" aria-selected="false" data-action="change-footer-tab" data-tab="chat"
+                    data-state="inactive"
+                    class="group/footer-item flex flex-1 flex-col items-center gap-footer-item-gap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span class="relative flex h-footer-icon w-footer-icon">
+                        <img class="h-full w-full filter-footer-inactive group-data-[state=active]/footer-item:filter-footer-active"
+                            src="https://i.ibb.co.com/zWsjr2hY/chat-mobile-footer.webp" alt="" aria-hidden="true">
+                    </span>
+
+                    <span
+                        class="text-xs leading-normal text-footer-inactive group-data-[state=active]/footer-item:font-semibold group-data-[state=active]/footer-item:text-footer-active dark:text-footer-inactiveDark dark:group-data-[state=active]/footer-item:text-footer-activeDark">
+                        Chat
+                    </span>
+                </button>
+
+
+                <!-- Profile -->
+                <button type="button" role="tab" aria-selected="true" data-action="change-footer-tab" data-tab="profile"
+                    data-state="active" aria-label="Profile, 3 unread notifications"
+                    class="group/footer-item flex flex-1 flex-col items-center gap-footer-item-gap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span class="relative flex h-footer-icon w-footer-icon">
+                        <img class="h-full w-full filter-footer-inactive group-data-[state=active]/footer-item:filter-footer-active"
+                            src="https://i.ibb.co.com/8DYq39hP/profile-mobile-footer.webp" alt="" aria-hidden="true">
+
+                        <span
+                            class="absolute right-0 top-0 flex h-footer-badge w-footer-badge items-center justify-center rounded-full bg-footer-badge text-[0.4375rem] leading-none tracking-status text-white dark:bg-footer-badgeDark dark:text-text-inverseDark">
+                            3
+                        </span>
+                    </span>
+
+                    <span
+                        class="text-xs leading-normal text-footer-inactive group-data-[state=active]/footer-item:font-semibold group-data-[state=active]/footer-item:text-footer-active dark:text-footer-inactiveDark dark:group-data-[state=active]/footer-item:text-footer-activeDark">
+                        Profile
+                    </span>
+                </button>
+
+            </div>
+        </footer>
+
+        <!-- no-notification-placeholder -->
+        <section data-component="empty-notification-state" class="flex flex-col items-center gap-empty-state-gap"
+            aria-labelledby="empty-notification-title">
+            <!-- notification-icon -->
+            <div aria-hidden="true"
+                class="flex h-empty-state-icon-container w-empty-state-icon-container items-center justify-center rounded-full bg-notification-empty-surface dark:bg-notification-empty-surfaceDark">
+                <img class="h-empty-state-icon w-empty-state-icon filter-icon-primary"
+                    src="https://i.ibb.co.com/3QSJ5NT/notification.webp" alt="">
+            </div>
+
+
+            <!-- empty-content -->
+            <div class="flex flex-col items-center justify-center gap-empty-state-content-gap text-center">
+                <h2 id="empty-notification-title"
+                    class="text-[1.375rem] font-semibold leading-empty-title text-text-heading dark:text-text-headingDark">
+                    Oops! No notifications yet
+                </h2>
+
+                <p class="text-base text-text-description dark:text-text-descriptionDark">
+                    When you have new notifications, they'll show up here.
+                </p>
+            </div>
+        </section>
+
+        <!-- report-selection -->
+        <div data-component="report-selection" class="flex w-[calc(100%+2rem)] flex-col ml-report-list-offset">
+            <!-- report-option -->
+            <button type="button" data-action="select-report" data-value="fake-profile" data-state="default"
+                class="flex items-center gap-report-item-gap px-report-item-x py-report-item-y text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                <span class="flex h-report-icon w-report-icon shrink-0 items-center justify-center">
+                    <img class="h-full w-full filter-icon-primary"
+                        src="https://i.ibb.co.com/N2gtYKQf/profile-with-minus.webp" alt="" aria-hidden="true">
+                </span>
+
+                <span class="text-base font-medium text-text-heading dark:text-text-headingDark">
+                    Profile is fake, spam, or scammer
+                </span>
+            </button>
+
+            <button type="button" data-action="select-report" data-value="inappropriate-content" data-state="default"
+                class="flex items-center gap-report-item-gap px-report-item-x py-report-item-y text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                <span class="flex h-report-icon w-report-icon shrink-0 items-center justify-center">
+                    <img class="h-full w-full filter-icon-primary"
+                        src="https://i.ibb.co.com/dwttx9KN/warning-circle.webp" alt="" aria-hidden="true">
+                </span>
+
+                <span class="text-base font-medium text-text-heading dark:text-text-headingDark">
+                    Inappropriate content
+                </span>
+            </button>
+
+            <button type="button" data-action="select-report" data-value="scam-commercial" data-state="default"
+                class="flex items-center gap-report-item-gap px-report-item-x py-report-item-y text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                <span class="flex h-report-icon w-report-icon shrink-0 items-center justify-center">
+                    <img class="h-full w-full filter-icon-primary" src="https://i.ibb.co.com/3yLYj2WQ/flag.webp" alt=""
+                        aria-hidden="true">
+                </span>
+
+                <span class="text-base font-medium text-text-heading dark:text-text-headingDark">
+                    Scam or commercial
+                </span>
+            </button>
+
+            <button type="button" data-action="select-report" data-value="danger" data-state="default"
+                class="flex items-center gap-report-item-gap px-report-item-x py-report-item-y text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                <span class="flex h-report-icon w-report-icon shrink-0 items-center justify-center">
+                    <img class="h-full w-full filter-icon-primary" src="https://i.ibb.co.com/fY1fM1r7/mic-speaker.webp"
+                        alt="" aria-hidden="true">
+                </span>
+
+                <span class="text-base font-medium text-text-heading dark:text-text-headingDark">
+                    Someone is in danger
+                </span>
+            </button>
+
+            <button type="button" data-action="select-report" data-value="underage" data-state="default"
+                class="flex items-center gap-report-item-gap px-report-item-x py-report-item-y text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                <span class="flex h-report-icon w-report-icon shrink-0 items-center justify-center">
+                    <img class="h-full w-full filter-icon-primary" src="https://i.ibb.co.com/VYm5jSjk/frown-emoji.webp"
+                        alt="" aria-hidden="true">
+                </span>
+
+                <span class="text-base font-medium text-text-heading dark:text-text-headingDark">
+                    Underage or minor
+                </span>
+            </button>
+        </div>
+
+        <!-- gift-card-container -->
+        <div data-component="gift-card-grid" class="grid grid-cols-3 gap-2">
+            <!-- gift-card -->
+            <button type="button" data-action="select-gift" data-gift="diamond" data-state="default"
+                aria-pressed="false" class="group/gift-card relative flex flex-col overflow-hidden rounded-lg border bg-gift-surface text-left transition
+        border-gift-border
+        data-[state=selected]:border-gift-selectedBorder
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2
+        dark:bg-gift-surfaceDark
+        dark:border-gift-borderDark
+        dark:data-[state=selected]:border-gift-selectedBorderDark">
+
+                <!-- popular-badge -->
+                <span aria-hidden="true"
+                    class="absolute right-gift-badge-right top-gift-badge-top flex w-gift-badge justify-center bg-gift-popular text-xs font-medium tracking-status text-white rotate-gift-badge dark:bg-gift-popularDark dark:text-text-inverseDark">
+                    popular
+                </span>
+
+                <!-- selected-indicator -->
+                <span data-element="selected-indicator" aria-hidden="true"
+                    class="absolute right-category-selected-icon-offset top-category-selected-icon-offset hidden items-center justify-center rounded-full bg-primary p-gift-selected-icon-padding group-data-[state=selected]/gift-card:flex dark:bg-primary-dark">
+                    <img data-element="selected-icon"
+                        class="h-category-selected-icon w-category-selected-icon filter-icon-inverse"
+                        src="https://i.ibb.co.com/5gjVfhFj/tick.webp" alt="">
+                </span>
+
+                <!-- gift-image-container -->
+                <span aria-hidden="true"
+                    class="flex h-gift-image w-full items-center justify-center bg-gift-accent/10 dark:bg-gift-accentDark/10">
+                    <img class="h-gift-icon w-gift-icon" src="https://i.ibb.co.com/Nd0mN5kC/diamond.webp" alt="">
+                </span>
+
+                <!-- gift-title -->
+                <span
+                    class="px-gift-card-padding-x py-gift-card-padding-y text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                    Diamond
+                </span>
+            </button>
+
+            <!-- gift-card -->
+            <button type="button" data-action="select-gift" data-gift="diamond" data-state="selected"
+                aria-pressed="false" class="group/gift-card relative flex flex-col overflow-hidden rounded-lg border bg-gift-surface text-left transition
+        border-gift-border
+        data-[state=selected]:border-gift-selectedBorder
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2
+        dark:bg-gift-surfaceDark
+        dark:border-gift-borderDark
+        dark:data-[state=selected]:border-gift-selectedBorderDark">
+
+                <!-- selected-indicator -->
+                <span data-element="selected-indicator" aria-hidden="true"
+                    class="absolute right-category-selected-icon-offset top-category-selected-icon-offset hidden items-center justify-center rounded-full bg-primary p-gift-selected-icon-padding group-data-[state=selected]/gift-card:flex dark:bg-primary-dark">
+                    <img data-element="selected-icon"
+                        class="h-category-selected-icon w-category-selected-icon filter-icon-inverse"
+                        src="https://i.ibb.co.com/5gjVfhFj/tick.webp" alt="">
+                </span>
+
+                <!-- gift-image-container -->
+                <span aria-hidden="true"
+                    class="flex h-gift-image w-full items-center justify-center bg-gift-accent/10 dark:bg-gift-accentDark/10">
+                    <img class="h-gift-icon w-gift-icon" src="https://i.ibb.co.com/M5nWvpzZ/luxurious-ring.webp"
+                        alt="luxurious ring">
+                </span>
+
+                <!-- gift-title -->
+                <span
+                    class="px-gift-card-padding-x py-gift-card-padding-y text-sm font-medium leading-description text-text-heading dark:text-text-headingDark">
+                    Luxurious Ring
+                </span>
+
+            </button>
         </div>
     </main>
 
