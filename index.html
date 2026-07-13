@@ -296,6 +296,18 @@
                             removeSurface: '#FFFFFF',
                             removeSurfaceDark: '#181A1B',
                         },
+                        upgradeBanner: {
+                            surface: '#005B96',
+                            surfaceDark: '#00568D',
+                            closeSurface: '#FFFFFF',
+                            closeSurfaceDark: '#181A1B',
+                        },
+                        discover: {
+                            tag: 'rgba(255,255,255,0.25)',
+                            tagDark: 'rgba(24,26,27,0.25)',
+                            badge: 'rgba(0,0,0,0.4)',
+                            badgeDark: 'rgba(24,26,27,0.4)',
+                        },
                     },
                     spacing: {
                         'page-x': '1rem',
@@ -399,6 +411,19 @@
                         'chat-attachment-chip-padding-y': '0.25rem',
                         'chat-attachment-chip-gap': '0.25rem',
                         'chat-attachment-remove-padding': '0.125rem',
+                        'chat-image-message-gap': '0.5rem',
+
+                        'upgrade-banner-padding-x': '1rem',
+                        'upgrade-banner-padding-y': '0.5rem',
+
+                        'header-action-gap': '0.75rem',
+
+                        'discover-card-padding': '0.5rem',
+                        'discover-card-top-padding': '0.375rem',
+                        'discover-action-gap': '1rem',
+                        'discover-tag-gap': '0.5rem',
+                        'discover-tag-x': '0.75rem',
+                        'discover-tag-y': '0.5rem',
                     },
                     borderRadius: {
                         pill: '6.25rem',
@@ -411,6 +436,7 @@
                         'chat-outgoing': '1rem 1rem 0 1rem',
                         'chat-reply': '0.375rem',
                         'chat-attachment': '0.75rem',
+                        'chat-message-image': '0.75rem',
                     },
                     width: {
                         'progress-step-1-of-9': '11.111111%',
@@ -486,6 +512,17 @@
                         'chat-attachment-preview-width': '3.75rem',
                         'chat-attachment-preview-icon': '0.75rem',
                         'chat-attachment-remove-icon': '0.625rem',
+                        'chat-message-image-width': '16.5625rem',
+
+                        'header-icon': '1.5rem',
+
+                        'upgrade-close': '1.75rem',
+                        'upgrade-close-icon': '1.25rem',
+
+                        'discover-card-action': '4.8125rem',
+                        'discover-icon': '1.25rem',
+                        'discover-badge-icon': '0.75rem',
+                        'discover-tag-icon': '1rem',
                     },
                     height: {
                         'progress-height': '0.5rem',
@@ -556,6 +593,13 @@
                         'chat-attachment-preview-height': '3.125rem',
                         'chat-attachment-preview-icon': '0.75rem',
                         'chat-attachment-remove-icon': '0.625rem',
+                        'chat-message-image-height': '15rem',
+
+                        'discover-card': '32.375rem',
+                        'discover-card-action': '4.8125rem',
+                        'discover-icon': '1.25rem',
+                        'discover-badge-icon': '0.75rem',
+                        'discover-tag-icon': '1rem',
                     },
                     minWidth: {
                         'range-tooltip': '3.625rem',
@@ -667,6 +711,15 @@
                         },
                         '.shadow-chat-reaction': {
                             'filter': 'drop-shadow(0px 4.29px 8.57px rgba(0,0,0,0.15))',
+                        },
+                        '.filter-icon-action-muted': {
+                            filter: 'brightness(0) saturate(100%) invert(31%) sepia(8%) saturate(894%) hue-rotate(181deg) brightness(96%) contrast(90%)',
+                        },
+                        '.filter-icon-like': {
+                            filter: 'brightness(0) saturate(100%) invert(59%) sepia(42%) saturate(1945%) hue-rotate(297deg) brightness(96%) contrast(94%)',
+                        },
+                        '.filter-icon-aura': {
+                            filter: 'brightness(0) saturate(100%) invert(86%) sepia(25%) saturate(1264%) hue-rotate(335deg) brightness(102%) contrast(102%)',
                         },
                     });
                 },
@@ -2674,7 +2727,46 @@
             </div>
         </form>
 
-        <!-- chat-composer attachment -->
+        <section data-component="chat-thread" class="flex flex-col gap-6" aria-label="Conversation">
+            <section data-component="chat-day-group" aria-label="Today messages" class="flex flex-col gap-4">
+                <div data-component="message-list"
+                    class="flex max-w-chat-message-max flex-col items-end gap-6 self-end">
+                    <!-- outgoing image message -->
+                    <article data-message-type="outgoing"
+                        class="relative flex w-fit max-w-full flex-col gap-chat-image-message-gap rounded-chat-outgoing bg-chatBubble-outgoing p-2 dark:bg-chatBubble-outgoingDark">
+                        <figure
+                            class="h-chat-message-image-height w-chat-message-image-width overflow-hidden rounded-chat-message-image">
+                            <img class="h-full w-full object-cover"
+                                src="https://i.ibb.co.com/8D4wdMqN/uploaded-photo-7.webp" alt="Shared photo" />
+                        </figure>
+
+                        <p class="text-base text-chatBubble-outgoingText dark:text-chatBubble-outgoingTextDark">
+                            Let’s meet here
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- yesterday -->
+            <section data-component="chat-day-group" aria-label="Yesterday messages" class="flex flex-col gap-4">
+                <div data-component="message-list" class="flex max-w-chat-message-max flex-col gap-6">
+                    <!-- incoming image message -->
+                    <article data-message-type="incoming"
+                        class="relative flex w-fit max-w-full flex-col gap-chat-image-message-gap rounded-chat-incoming bg-chatBubble-incoming p-2 dark:bg-chatBubble-incomingDark">
+                        <figure
+                            class="h-chat-message-image-height w-chat-message-image-width overflow-hidden rounded-chat-message-image">
+                            <img class="h-full w-full object-cover"
+                                src="https://i.ibb.co.com/8D4wdMqN/uploaded-photo-7.webp" alt="Shared photo" />
+                        </figure>
+
+                        <p class="text-base text-chatBubble-incomingText dark:text-chatBubble-incomingTextDark">
+                            Lets meet here
+                        </p>
+                    </article>
+                </div>
+            </section>
+        </section>
+
         <form data-component="chat-composer" data-state="has-attachment"
             class="flex w-[calc(100%+2rem)] ml-report-list-offset items-center justify-center border-t border-chatComposer-border p-chat-composer-padding dark:border-chatComposer-borderDark">
             <div class="flex w-full items-end gap-2">
@@ -2742,6 +2834,193 @@
                 </button>
             </div>
         </form>
+
+        <!-- upgrade-banner -->
+        <aside data-component="upgrade-banner"
+            class="flex items-center justify-between gap-3 rounded-xl bg-upgradeBanner-surface/10 px-upgrade-banner-padding-x py-upgrade-banner-padding-y dark:bg-upgradeBanner-surfaceDark/10">
+            <img class="h-header-icon w-header-icon filter-icon-primary" src="https://i.ibb.co.com/Ld7vpv2Q/crown.webp"
+                alt="" />
+
+            <div class="flex flex-grow items-center gap-1">
+                <h3 class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                    Upgrade Membership
+                </h3>
+            </div>
+
+            <button type="button" data-action="dismiss-banner" aria-label="Dismiss upgrade banner"
+                class="flex h-upgrade-close w-upgrade-close items-center justify-center rounded-full bg-upgradeBanner-closeSurface p-1 dark:bg-upgradeBanner-closeSurfaceDark">
+                <img class="h-upgrade-close-icon w-upgrade-close-icon filter-icon-primary"
+                    src="https://i.ibb.co.com/hJfdxBR2/cross.webp" alt="" />
+            </button>
+        </aside>
+
+        <!-- discover-header -->
+        <header data-component="discover-header" class="flex items-center justify-between gap-2">
+            <!-- settings -->
+            <button type="button" aria-label="Open settings"
+                class="flex h-header-icon w-header-icon items-center justify-center">
+                <img class="h-full w-full filter-icon-neutral" src="https://i.ibb.co.com/67wLxy64/settings.webp"
+                    alt="" />
+            </button>
+
+            <!-- actions -->
+            <div class="flex items-center gap-header-action-gap">
+                <button type="button" aria-label="Change location"
+                    class="flex h-header-icon w-header-icon items-center justify-center">
+                    <img class="h-full w-full filter-icon-neutral" src="https://i.ibb.co.com/ksZpy7L0/pin-tilted.webp"
+                        alt="" />
+                </button>
+
+                <button type="button" aria-label="Favourite"
+                    class="flex h-header-icon w-header-icon items-center justify-center">
+                    <img class="h-full w-full filter-icon-neutral"
+                        src="https://i.ibb.co.com/whXX1d5X/star-favourite.webp" alt="" />
+                </button>
+
+                <button type="button" aria-label="Flash"
+                    class="flex h-header-icon w-header-icon items-center justify-center">
+                    <img class="h-full w-full filter-icon-neutral" src="https://i.ibb.co.com/vvH8pfLB/flash.webp"
+                        alt="" />
+                </button>
+
+                <button type="button" aria-label="Calendar"
+                    class="flex h-header-icon w-header-icon items-center justify-center">
+                    <img class="h-full w-full filter-icon-neutral" src="https://i.ibb.co.com/7dWzP08q/calender.webp"
+                        alt="" />
+                </button>
+
+                <button type="button" aria-label="Go back"
+                    class="flex h-header-icon w-header-icon items-center justify-center">
+                    <img class="h-full w-full filter-icon-neutral" src="https://i.ibb.co.com/d0B5tPCT/back-arrow.webp"
+                        alt="" />
+                </button>
+            </div>
+        </header>
+
+        <!-- discover-card -->
+        <article data-component="discover-card" data-state="default"
+            class="relative flex h-discover-card flex-col overflow-hidden rounded-2xl">
+            <!-- background-image -->
+            <div aria-hidden="true" class="absolute inset-0 bg-cover bg-center"
+                style="background-image:url('https://i.ibb.co.com/B56cYK5n/girl-discovery-illustration.webp')"></div>
+
+            <!-- overlays -->
+            <div aria-hidden="true"
+                class="absolute inset-0 [background:linear-gradient(180deg,rgba(0,0,0,0.26)_0%,rgba(255,255,255,0)_19.77%),linear-gradient(360deg,rgba(0,0,0,0.25)_30.75%,rgba(255,255,255,0)_65.83%)]">
+            </div>
+
+            <!-- content -->
+            <div class="relative z-[1] flex h-full flex-col justify-between">
+                <!-- profile-header -->
+                <header class="flex flex-col gap-2 px-discover-card-padding pt-discover-card-top-padding">
+                    <!-- progress-tabs -->
+                    <div data-component="profile-progress" class="flex items-center gap-2 px-2">
+                        <span data-state="active" class="h-1 flex-1 rounded-pill bg-white"></span>
+                        <span data-state="default"
+                            class="h-1 flex-1 rounded-pill bg-[#6C727F] dark:bg-[#5a6266]"></span>
+                        <span data-state="default"
+                            class="h-1 flex-1 rounded-pill bg-[#6C727F] dark:bg-[#5a6266]"></span>
+                        <span data-state="default"
+                            class="h-1 flex-1 rounded-pill bg-[#6C727F] dark:bg-[#5a6266]"></span>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-1">
+                            <h2
+                                class="truncate text-2xl font-bold leading-normal tracking-heading text-white dark:text-text-inverseDark">
+                                Emily, 26
+                            </h2>
+
+                            <img class="h-discover-icon w-discover-icon"
+                                src="https://i.ibb.co.com/5pS5fhd/verified-tick.webp" alt="Verified profile">
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <span data-component="match-score"
+                                class="flex items-center gap-1 rounded-lg bg-black/40 px-2 py-1 dark:bg-[#181a1b]/40">
+                                <img class="h-discover-badge-icon w-discover-badge-icon filter-icon-inverse"
+                                    src="https://i.ibb.co.com/mCgfrF9m/star-inside-rectangle.webp" alt="">
+                                <span
+                                    class="text-xs leading-normal font-semibold text-white dark:text-text-inverseDark">20%
+                                    match</span>
+                            </span>
+
+                            <span data-component="distance-badge"
+                                class="flex items-center gap-1 rounded-pill bg-white/15 px-2 py-1 dark:bg-[#181a1b]/15">
+                                <img class="h-discover-badge-icon w-discover-badge-icon filter-icon-inverse"
+                                    src="https://i.ibb.co.com/9mGztNGz/location-marker.webp" alt="">
+                                <span
+                                    class="text-xs leading-normal font-semibold text-white dark:text-text-inverseDark">16km
+                                    away</span>
+                            </span>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- card-actions -->
+                <footer class="flex flex-col gap-2 px-discover-card-padding pb-discover-card-padding">
+                    <div class="flex items-center gap-discover-action-gap self-center">
+                        <button type="button" data-action="reject-profile" aria-label="Reject Emily"
+                            class="flex h-discover-card-action w-discover-card-action items-center justify-center rounded-full bg-white dark:bg-[#181a1b]">
+                            <img class="h-10 w-10 filter-icon-action-muted"
+                                src="https://i.ibb.co.com/hJfdxBR2/cross.webp" alt="">
+                        </button>
+
+                        <button type="button" data-action="like-profile" aria-label="Like Emily"
+                            class="flex h-discover-card-action w-discover-card-action items-center justify-center rounded-full bg-white dark:bg-[#181a1b]">
+                            <img class="h-10 w-10 filter-icon-like"
+                                src="https://i.ibb.co.com/7N0Gbq4d/heart-on-heart.webp" alt="">
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <img class="h-5 w-5 filter-icon-aura" src="https://i.ibb.co.com/3yTbd3k2/aura.webp" alt="">
+
+                        <span class="text-sm font-semibold leading-description text-[#FFCB45] dark:text-[#ffcd4b]">
+                            4 Tags Matched
+                        </span>
+                    </div>
+
+                    <!-- matched-tags -->
+                    <div data-component="tag-list"
+                        class="scrollbar-hidden flex w-[calc(100%+1rem)] -ml-2 items-center gap-discover-tag-gap overflow-x-auto px-2">
+                        <button type="button" data-component="profile-tag" data-action="view-tag" data-tag="pop-music"
+                            class="flex shrink-0 items-center gap-2 rounded-pill bg-white/25 px-discover-tag-x py-discover-tag-y dark:bg-[#181a1b]/25">
+                            <img class="h-discover-tag-icon w-discover-tag-icon filter-icon-inverse"
+                                src="https://i.ibb.co.com/5gjVfhFj/tick.webp" alt="">
+                            <span
+                                class="text-[0.8125rem] leading-[1.125rem] font-semibold text-white dark:text-[#181a1b]">Pop
+                                Music</span>
+                        </button>
+
+                        <button type="button" data-component="profile-tag" data-action="view-tag" data-tag="fitness"
+                            class="flex shrink-0 items-center gap-2 rounded-pill bg-white/25 px-discover-tag-x py-discover-tag-y dark:bg-[#181a1b]/25">
+                            <img class="h-discover-tag-icon w-discover-tag-icon filter-icon-inverse"
+                                src="https://i.ibb.co.com/5gjVfhFj/tick.webp" alt="">
+                            <span
+                                class="text-[0.8125rem] leading-[1.125rem] font-semibold text-white dark:text-[#181a1b]">Fitness</span>
+                        </button>
+
+                        <button type="button" data-component="profile-tag" data-action="view-tag" data-tag="pets"
+                            class="flex shrink-0 items-center gap-2 rounded-pill bg-white/25 px-discover-tag-x py-discover-tag-y dark:bg-[#181a1b]/25">
+                            <img class="h-discover-tag-icon w-discover-tag-icon filter-icon-inverse"
+                                src="https://i.ibb.co.com/5gjVfhFj/tick.webp" alt="">
+                            <span
+                                class="text-[0.8125rem] leading-[1.125rem] font-semibold text-white dark:text-[#181a1b]">Pets</span>
+                        </button>
+
+                        <button type="button" data-component="profile-tag" data-action="view-tag" data-tag="outdoor"
+                            class="flex shrink-0 items-center gap-2 rounded-pill bg-white/25 px-discover-tag-x py-discover-tag-y dark:bg-[#181a1b]/25">
+                            <img class="h-discover-tag-icon w-discover-tag-icon filter-icon-inverse"
+                                src="https://i.ibb.co.com/5gjVfhFj/tick.webp" alt="">
+                            <span
+                                class="text-[0.8125rem] leading-[1.125rem] font-semibold text-white dark:text-[#181a1b]">Outdoor</span>
+                        </button>
+                    </div>
+                </footer>
+            </div>
+
+        </article>
     </main>
 
 </body>
