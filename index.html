@@ -296,6 +296,22 @@
                             removeSurface: '#FFFFFF',
                             removeSurfaceDark: '#181A1B',
                         },
+                        dateInvite: {
+                            surface: '#8C32B0',
+                            surfaceDark: '#742992',
+                            badge: '#0F0F0F',
+
+                            action: '#E6EFF5',
+                            actionText: '#011F4B',
+                            actionDark: '#D0CCC6',
+                            actionTextDark: '#01275F',
+                        },
+                        suggestion: {
+                            surface: '#8C32B0',
+                            surfaceDark: '#742992',
+                            text: '#FFFFFF',
+                            textDark: '#E8E6E3',
+                        },
                         upgradeBanner: {
                             surface: '#005B96',
                             surfaceDark: '#00568D',
@@ -307,6 +323,50 @@
                             tagDark: 'rgba(24,26,27,0.25)',
                             badge: 'rgba(0,0,0,0.4)',
                             badgeDark: 'rgba(24,26,27,0.4)',
+                        },
+                        toggle: {
+                            off: '#D3D5DA',
+                            offDark: '#2F3335',
+                            on: '#005B96',
+                            onDark: '#00568D',
+                            thumb: '#FFFFFF',
+                            thumbDark: '#181A1B',
+                        },
+                        notice: {
+                            surface: '#F4F4F6',
+                            surfaceDark: '#1E2021',
+                        },
+                        viewToggle: {
+                            surface: '#F4F4F6',
+                            surfaceDark: '#1E2021',
+
+                            active: '#D3D5DA',
+                            activeDark: '#363B3D',
+                        },
+                        profileStatus: {
+                            online: '#13E398',
+                            onlineDark: '#0FB77A',
+                        },
+                        match: {
+                            text: '#FFCB45',
+                            textDark: '#FFCD4B',
+                        },
+                        compatibility: {
+                            surface: '#F9FAFB',
+                            surfaceDark: '#1B1D1E',
+
+                            iconSurface: '#EE8721',
+                            iconSurfaceDark: '#B4610E',
+
+                            icon: '#EE8721',
+                            iconDark: '#D77A18',
+                        },
+                        matchHighlight: {
+                            surface: '#FD3B79',
+                            surfaceDark: '#A80237',
+
+                            accent: '#FD3B79',
+                            accentDark: '#FD447F',
                         },
                     },
                     spacing: {
@@ -457,6 +517,7 @@
                         'upload-action-size': '1.25rem',
                         'upload-action-icon': '0.75rem',
 
+                        'range-fill-40': '66%',
                         'range-value-20-of-60': '33.333333%',
                         'range-thumb': '2rem',
                         'range-thumb-core': '1rem',
@@ -523,6 +584,11 @@
                         'discover-icon': '1.25rem',
                         'discover-badge-icon': '0.75rem',
                         'discover-tag-icon': '1rem',
+
+                        'toggle': '2.5rem',
+                        'toggle-thumb': '1.25rem',
+
+                        'date-card-image': '100%',
                     },
                     height: {
                         'progress-height': '0.5rem',
@@ -535,6 +601,7 @@
                         'upload-action-size': '1.25rem',
                         'upload-action-icon': '0.75rem',
 
+                        'range-scale-gap': '0.5rem',
                         'range-control': '1.875rem',
                         'range-track': '0.375rem',
                         'range-thumb': '2rem',
@@ -600,6 +667,11 @@
                         'discover-icon': '1.25rem',
                         'discover-badge-icon': '0.75rem',
                         'discover-tag-icon': '1rem',
+
+                        'toggle': '1.5rem',
+                        'toggle-thumb': '1.25rem',
+
+                        'date-card-selected': '11.25rem',
                     },
                     minWidth: {
                         'range-tooltip': '3.625rem',
@@ -647,15 +719,19 @@
                     backgroundImage: {
                         'notification-match':
                             'linear-gradient(135deg,#05609C 14.5%,#1473B1 85.5%)',
-
                         'notification-super-like':
                             'linear-gradient(135deg,#6F5CE3 14.5%,#255BB0 85.5%)',
-
                         'notification-message':
                             'linear-gradient(135deg,#009B96 14.5%,#006A96 85.5%)',
-
                         'notification-boost':
                             'linear-gradient(135deg,#FA8548 14.5%,#1473B1 85.5%)',
+                        'date-card-overlay': 'linear-gradient(360deg,rgba(0,0,0,0.6) 0%,rgba(255,255,255,0) 100%)',
+                        'date-card-overlay-dark': 'linear-gradient(360deg,rgba(24,26,27,0.6) 0%,rgba(24,26,27,0) 100%)',
+                        'date-card-overlay': 'linear-gradient(360deg,rgba(0,0,0,0.6) 0%,rgba(255,255,255,0) 100%)',
+                        'profile-card-overlay': 'linear-gradient(360deg,rgba(0,0,0,0.35) 0%,rgba(102,102,102,0) 100%)',
+                        '.filter-icon-match-highlight': {
+                            filter: 'brightness(0) saturate(100%) invert(33%) sepia(77%) saturate(2516%) hue-rotate(321deg) brightness(104%) contrast(98%)',
+                        },
                     },
                     rotate: {
                         'gift-badge': '39.61deg',
@@ -667,6 +743,9 @@
                         progressAvatar: {
                             DEFAULT: '2.5',
                         },
+                    },
+                    translate: {
+                        'toggle-thumb': '1rem',
                     },
                 },
             },
@@ -3020,6 +3099,508 @@
                 </footer>
             </div>
 
+        </article>
+
+        <!-- tags-matched -->
+        <div class="flex items-center gap-2">
+            <img class="h-5 w-5 filter-icon-aura" src="https://i.ibb.co.com/3yTbd3k2/aura.webp" alt="">
+
+            <span class="text-sm font-semibold leading-description text-[#FFCB45] dark:text-[#ffcd4b]">
+                4 Tags Matched
+            </span>
+        </div>
+
+        <!-- range-slider #2 -->
+        <div class="flex flex-col gap-6">
+            <div class="flex items-center justify-between gap-1">
+                <label id="age-range-label"
+                    class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                    Age range
+                </label>
+
+                <span class="text-base font-semibold text-text-heading dark:text-text-headingDark">
+                    Matches under 25
+                </span>
+            </div>
+
+            <!-- range-slider -->
+            <div data-component="range-slider" data-state="default" data-value="40" data-min="0" data-max="60"
+                class="flex flex-col gap-range-group-gap">
+                <!-- range-control -->
+                <div data-element="range-control" class="flex h-range-control items-center justify-center">
+                    <div data-element="range-track"
+                        class="h-range-track w-full cursor-pointer rounded-pill bg-range-track dark:bg-range-trackDark">
+                        <div data-element="range-fill" data-state="active"
+                            class="relative flex h-full w-range-fill-40 items-center rounded-pill bg-range-fill dark:bg-range-fillDark">
+                            <button type="button" data-action="change-range" data-element="range-thumb" role="slider"
+                                aria-labelledby="age-range-label" aria-valuemin="0" aria-valuemax="60"
+                                aria-valuenow="40" aria-valuetext="Under 25"
+                                class="absolute right-range-thumb-offset inline-flex h-range-thumb w-range-thumb cursor-pointer items-center justify-center rounded-full bg-range-thumb/20 p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-range-thumbDark/20">
+                                <span data-element="range-thumb-core"
+                                    class="relative flex h-range-thumb-core w-range-thumb-core items-center justify-center rounded-full bg-range-fill dark:bg-range-fillDark">
+                                    <span data-element="range-tooltip"
+                                        class="absolute top-range-tooltip-top flex w-max min-w-range-tooltip items-center justify-center rounded-lg bg-range-tooltip px-range-tooltip-x py-range-tooltip-y text-xs leading-normal text-text-primary after:absolute after:bottom-range-tooltip-arrow-bottom after:left-1/2 after:h-0 after:w-0 after:-translate-x-1/2 after:border-x-8 after:border-t-8 after:border-x-transparent after:border-t-range-tooltip after:content-[''] dark:bg-range-tooltipDark dark:text-text-primaryDark dark:after:border-t-range-tooltipDark">
+                                        Under 25
+                                    </span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- range-scale -->
+                <div data-element="range-scale" class="flex items-center justify-between gap-range-scale-gap">
+                    <span data-element="range-scale-label"
+                        class="text-xs leading-normal text-text-heading dark:text-text-headingDark">
+                        Younger crowd
+                    </span>
+
+                    <span data-element="range-scale-label"
+                        class="text-xs leading-normal text-text-heading dark:text-text-headingDark">
+                        Around my age
+                    </span>
+
+                    <span data-element="range-scale-label"
+                        class="text-xs leading-normal text-text-heading dark:text-text-headingDark">
+                        More mature
+                    </span>
+
+                    <span data-element="range-scale-label"
+                        class="text-xs leading-normal text-text-heading dark:text-text-headingDark">
+                        No preference
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- toggle -->
+        <label data-component="toggle" data-state="default" class="relative inline-flex cursor-pointer items-center">
+            <input data-element="toggle-input" type="checkbox" name="setting" aria-label="Enable setting"
+                class="peer sr-only">
+
+            <!-- toggle-track -->
+            <span data-element="toggle-track"
+                class="flex h-toggle w-toggle shrink-0 items-center rounded-pill bg-toggle-off transition-colors peer-checked:bg-toggle-on peer-focus-visible:ring-2 peer-focus-visible:ring-border-focus peer-focus-visible:ring-offset-2 dark:bg-toggle-offDark dark:peer-checked:bg-toggle-onDark">
+            </span>
+
+            <!-- toggle-thumb -->
+            <span data-element="toggle-thumb" aria-hidden="true"
+                class="pointer-events-none absolute left-0.5 top-0.5 h-toggle-thumb w-toggle-thumb shrink-0 rounded-full bg-toggle-thumb transition-transform duration-200 peer-checked:translate-x-4 dark:bg-toggle-thumbDark">
+            </span>
+        </label>
+
+        <!-- list-item -->
+        <ul data-component="list" class="flex flex-col gap-4 list-none">
+            <li data-element="list-item" class="w-full">
+                <a href="#"
+                    class="flex w-full items-center justify-between rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <span data-element="list-label"
+                        class="text-lg leading-subtitle font-semibold text-text-heading dark:text-text-headingDark">
+                        Here for
+                    </span>
+
+                    <span data-element="list-action-icon" aria-hidden="true"
+                        class="flex h-6 w-6 shrink-0 items-center justify-center">
+                        <img class="h-full w-full filter-icon-primary"
+                            src="https://i.ibb.co.com/z3xVtyC/chevron-right.webp" alt="">
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Checkbox layout with label -->
+        <label data-component="checkbox-field" data-state="default" class="flex cursor-pointer flex-col gap-3">
+            <span class="flex items-center justify-between gap-1">
+                <span data-element="checkbox-label"
+                    class="text-sm leading-description font-semibold text-text-heading dark:text-text-headingDark">
+                    Male
+                </span>
+
+                <input id="checkbox-2" data-element="checkbox-input" type="checkbox"
+                    class="relative flex h-checkbox-size w-checkbox-size shrink-0 cursor-pointer appearance-none items-center justify-center rounded-checkbox border-2 border-checkbox-border bg-transparent transition checked:border-checkbox-checked checked:bg-checkbox-checked checked:after:absolute checked:after:top-checkbox-check-top checked:after:h-checkbox-check-height checked:after:w-checkbox-check-width checked:after:rotate-45 checked:after:border-2 checked:after:border-l-0 checked:after:border-t-0 checked:after:border-checkbox-check checked:after:content-[''] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:border-checkbox-borderDark dark:checked:border-checkbox-checkedDark dark:checked:bg-checkbox-checkedDark dark:checked:after:border-checkbox-checkDark">
+                </input>
+            </span>
+        </label>
+
+        <!-- prompt -->
+        <button type="button" data-component="prompt" data-element="prompt-button"
+            class="flex w-max cursor-pointer items-center justify-center gap-2 rounded-pill bg-[#F9FAFB] px-3 py-2 shadow-[0px_1px_4px_0px_#00000026] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-[#1B1D1E]">
+            <img data-element="prompt-icon" class="h-5 w-5 filter-footer-active"
+                src="https://i.ibb.co.com/MDJ1zknV/prompt.webp" alt="" aria-hidden="true">
+
+            <span data-element="prompt-label"
+                class="text-sm leading-description text-text-heading dark:text-text-headingDark">
+                Try an Icebreaker
+            </span>
+        </button>
+
+        <!-- Notice -->
+        <div data-component="notice"
+            class="flex items-center gap-2 rounded-2xl bg-notice-surface px-4 py-4 dark:bg-notice-surfaceDark">
+            <img data-element="notice-icon" class="h-5 w-5 shrink-0 filter-icon-primary-blue"
+                src="https://i.ibb.co.com/dwttx9KN/warning-circle.webp" alt="" aria-hidden="true">
+
+            <p data-element="notice-text"
+                class="text-sm leading-description font-semibold text-text-heading dark:text-text-headingDark">
+                David likes to take it slow the first few dates.
+            </p>
+        </div>
+
+        <!-- Date-card -->
+        <div data-component="date-card-grid" class="grid grid-cols-2 gap-x-4 gap-y-3">
+            <!-- date-card -->
+            <button type="button" data-component="date-card" data-state="default" data-date-type="restaurant"
+                class="group relative flex aspect-square flex-col justify-end overflow-hidden rounded-2xl p-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                <!-- image -->
+                <img data-element="date-card-image" class="absolute inset-0 h-full w-full object-cover"
+                    src="https://i.ibb.co.com/fGGGdjhB/restaurant-date-illustration.webp" alt="Restaurant date">
+
+                <!-- overlay -->
+                <span aria-hidden="true" class="absolute inset-0 bg-date-card-overlay dark:bg-date-card-overlay-dark">
+                </span>
+
+                <!-- title -->
+                <span data-element="date-card-title"
+                    class="relative z-10 text-base font-semibold text-white dark:text-text-inverseDark">
+                    Restaurant
+                </span>
+            </button>
+        </div>
+
+        <!-- Date-card-selected -->
+        <article data-component="date-card" data-state="selected" data-date-type="restaurant"
+            class="relative flex h-[11.25rem] flex-col justify-end overflow-hidden rounded-2xl p-3">
+            <!-- image -->
+            <img data-element="date-card-image" class="absolute inset-0 h-full w-full object-cover"
+                src="https://i.ibb.co.com/fGGGdjhB/restaurant-date-illustration.webp" alt="Restaurant date">
+
+            <!-- overlay -->
+            <span aria-hidden="true" class="absolute inset-0 bg-date-card-overlay dark:bg-date-card-overlay-dark">
+            </span>
+
+            <!-- title -->
+            <span data-element="date-card-title"
+                class="relative z-10 text-base font-semibold text-white dark:text-text-inverseDark">
+                Restaurant
+            </span>
+        </article>
+
+        <!-- suggestion-prompt -->
+        <ul data-component="suggestion-list" class="flex flex-col gap-2 list-none">
+            <li data-element="suggestion-item">
+                <button type="button" data-action="send-suggestion" data-suggestion="Are you free Saturday?"
+                    class="flex w-fit max-w-full rounded-chat-incoming bg-suggestion-surface px-chat-bubble-x py-chat-bubble-y text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-suggestion-surfaceDark">
+
+                    <span class="text-base text-suggestion-text dark:text-suggestion-textDark">
+                        Are you free Saturday?
+                    </span>
+                </button>
+            </li>
+        </ul>
+
+        <!-- date-invite-message -->
+        <section data-component="chat-thread" class="flex flex-col gap-6" aria-label="Conversation">
+            <section data-component="chat-day-group" aria-label="Today messages" class="flex flex-col gap-4">
+                <div data-component="message-list"
+                    class="flex w-full max-w-chat-message-max flex-col items-end gap-6 self-end">
+                    <article data-component="chat-message" data-message-type="outgoing"
+                        data-message-variant="date-invite"
+                        class="flex w-full max-w-full flex-col gap-2 overflow-hidden rounded-chat-outgoing bg-dateInvite-surface pb-3 dark:bg-dateInvite-surfaceDark">
+                        <!-- date-preview -->
+                        <div class="flex flex-col gap-2">
+                            <div data-element="date-image" class="relative h-[7.5rem] w-full">
+                                <img class="absolute inset-0 z-0 h-full w-full object-cover"
+                                    src="https://i.ibb.co.com/fGGGdjhB/restaurant-date-illustration.webp"
+                                    alt="Restaurant date">
+
+                                <span aria-hidden="true" class="absolute inset-0 bg-date-card-overlay">
+                                </span>
+
+                                <span data-element="date-label"
+                                    class="absolute left-2 top-2 flex items-center justify-center rounded-pill bg-dateInvite-badge px-2 py-1">
+                                    <span
+                                        class="text-xs leading-normal font-semibold text-white dark:text-text-inverseDark">
+                                        Date invite
+                                    </span>
+                                </span>
+                            </div>
+
+                            <div class="flex items-center gap-1 px-4">
+                                <span class="text-base font-semibold text-white dark:text-text-inverseDark">
+                                    Restaurant
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <!-- message-content -->
+                        <div class="flex flex-col gap-2 px-4">
+
+                            <p class="text-sm leading-description text-white dark:text-text-inverseDark">
+                                “I know this cozy Italian place with the best pasta and a cute patio. Want to check it
+                                out together?”
+                            </p>
+
+                            <div class="flex items-center gap-2 opacity-80">
+                                <img class="h-4 w-4 filter-icon-inverse"
+                                    src="https://i.ibb.co.com/kgPtQLVZ/time-waiting.webp" alt="" aria-hidden="true">
+
+                                <p class="text-xs leading-normal text-white dark:text-text-inverseDark">
+                                    Waiting for David to accept
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </section>
+
+        <!-- incoming-date-invite-message -->
+        <section data-component="chat-thread" class="flex flex-col gap-6" aria-label="Conversation">
+            <section data-component="chat-day-group" aria-label="Yesterday messages" class="flex flex-col gap-4">
+                <div data-component="message-list" class="flex max-w-chat-message-max flex-col gap-6">
+                    <article data-component="chat-message" data-message-type="incoming"
+                        data-message-variant="date-invite"
+                        class="flex w-full max-w-full flex-col gap-2 overflow-hidden rounded-chat-incoming bg-dateInvite-surface pb-3 dark:bg-dateInvite-surfaceDark">
+                        <!-- date-preview -->
+                        <div class="flex flex-col gap-2">
+                            <div data-element="date-image" class="relative h-[7.5rem] w-full">
+                                <img class="absolute inset-0 z-0 h-full w-full object-cover"
+                                    src="https://i.ibb.co.com/fGGGdjhB/restaurant-date-illustration.webp"
+                                    alt="Restaurant date">
+
+                                <span aria-hidden="true" class="absolute inset-0 bg-date-card-overlay">
+                                </span>
+
+                                <span data-element="date-label"
+                                    class="absolute left-2 top-2 flex items-center justify-center rounded-pill bg-dateInvite-badge px-2 py-1">
+
+                                    <span
+                                        class="text-xs leading-normal font-semibold text-white dark:text-text-inverseDark">
+                                        Date invite
+                                    </span>
+                                </span>
+                            </div>
+
+                            <div class="flex items-center gap-1 px-4">
+                                <span class="text-base font-semibold text-white dark:text-text-inverseDark">
+                                    Restaurant
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- message-content -->
+                        <div class="flex flex-col gap-3 px-4">
+                            <p class="text-sm leading-description text-white dark:text-text-inverseDark">
+                                “I know this cozy Italian place with the best pasta and a cute patio. Want to check it
+                                out together?”
+                            </p>
+
+                            <button type="button" data-action="accept-date-invite"
+                                class="flex items-center justify-center rounded-buttonSoft bg-dateInvite-action px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 dark:bg-dateInvite-actionDark">
+                                <span
+                                    class="text-sm leading-[1.125rem] -tracking-[0.000875rem] font-semibold text-dateInvite-actionText dark:text-dateInvite-actionTextDark">
+                                    Accept Invitation
+                                </span>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </section>
+
+        <!-- Likes-header -->
+        <header data-component="page-header" class="flex items-center justify-between">
+            <h1 data-element="page-title"
+                class="text-2xl leading-[2rem] tracking-[0.003rem] font-bold text-text-heading dark:text-text-headingDark">
+                Likes
+            </h1>
+
+            <div class="flex items-center gap-6">
+                <!-- view-switcher -->
+                <div data-component="view-switcher" role="group" aria-label="Change likes view"
+                    class="flex items-center rounded-pill bg-viewToggle-surface p-0.5 dark:bg-viewToggle-surfaceDark">
+                    <!-- grid-view -->
+                    <button type="button" data-action="change-view" data-view="grid" data-state="active"
+                        aria-label="Grid view"
+                        class="flex h-9 w-9 items-center justify-center rounded-full px-1.5 py-1 data-[state=active]:bg-viewToggle-active dark:data-[state=active]:bg-viewToggle-activeDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                        <img class="h-5 w-5 filter-icon-action-muted" src="https://i.ibb.co.com/4RDndGYJ/grid.webp"
+                            alt="" aria-hidden="true">
+                    </button>
+
+                    <!-- list-view -->
+                    <button type="button" data-action="change-view" data-view="list" data-state="default"
+                        aria-label="List view"
+                        class="flex h-9 w-9 items-center justify-center rounded-full px-1.5 py-1 data-[state=active]:bg-viewToggle-active dark:data-[state=active]:bg-viewToggle-activeDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                        <img class="h-5 w-5 filter-icon-action-muted" src="https://i.ibb.co.com/dJBJR4w2/list.webp"
+                            alt="" aria-hidden="true">
+                    </button>
+                </div>
+
+                <!-- location-action -->
+                <button type="button" data-action="open-location" aria-label="Likes location filter"
+                    class="relative flex h-6 w-6 items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                    <img class="h-full w-full filter-icon-primary" src="https://i.ibb.co.com/ksZpy7L0/pin-tilted.webp"
+                        alt="" aria-hidden="true">
+
+                    <!-- notification-count -->
+                    <span aria-label="4 new location matches"
+                        class="absolute bottom-0 right-0 flex h-2.5 w-2.5 items-center justify-center rounded-full bg-danger">
+                        <span
+                            class="text-[0.4375rem] leading-none tracking-status font-medium text-white dark:text-text-inverseDark">
+                            4
+                        </span>
+                    </span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Likes-card -->
+        <div data-component="likes-card-grid" class="grid grid-cols-2 gap-3">
+            <!-- profile-card -->
+            <button type="button" data-component="profile-card" data-state="default" data-profile-id="liam"
+                class="group relative flex h-[15.625rem] flex-col justify-end overflow-hidden rounded-2xl p-2 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                <!-- profile-image -->
+                <img data-element="profile-image" class="absolute inset-0 h-full w-full object-cover"
+                    src="https://i.ibb.co.com/m5CmZ6Qs/liam-girl.webp" alt="Liam profile">
+
+                <!-- overlay -->
+                <span aria-hidden="true" class="absolute inset-0 bg-profile-card-overlay"></span>
+
+                <!-- profile-content -->
+                <span data-element="profile-content" class="relative z-10 flex flex-col gap-1">
+                    <!-- matched-tags -->
+                    <span class="flex items-center gap-1.5">
+                        <img class="h-4 w-4 filter-icon-aura" src="https://i.ibb.co.com/3yTbd3k2/aura.webp" alt=""
+                            aria-hidden="true">
+
+                        <span class="text-xs font-semibold leading-normal text-match-text dark:text-match-textDark">
+                            4 Tags Matched
+                        </span>
+                    </span>
+
+                    <!-- profile-name -->
+                    <span class="flex items-center gap-1.5">
+                        <span class="text-base font-semibold truncate text-white dark:text-text-inverseDark">
+                            Liam, 27
+                        </span>
+
+                        <span class="flex h-5 w-5 shrink-0 items-center justify-center">
+                            <img class="h-full w-full" src="https://i.ibb.co.com/5pS5fhd/verified-tick.webp"
+                                alt="Verified profile">
+                        </span>
+
+                        <!-- online-status -->
+                        <span aria-label="Online"
+                            class="h-1.5 w-1.5 shrink-0 rounded-full bg-profileStatus-online dark:bg-profileStatus-onlineDark">
+                        </span>
+                    </span>
+
+                    <!-- distance -->
+                    <span
+                        class="flex w-max items-center justify-center gap-1 rounded-pill bg-white/15 px-1.5 py-0.5 dark:bg-[#181a1b]/15">
+                        <img class="h-2.5 w-2.5 filter-icon-inverse"
+                            src="https://i.ibb.co.com/9mGztNGz/location-marker.webp" alt="" aria-hidden="true">
+
+                        <span
+                            class="text-[0.625rem] leading-[1.125rem] font-semibold text-white dark:text-text-inverseDark">
+                            5-10km away
+                        </span>
+                    </span>
+                </span>
+            </button>
+        </div>
+
+        <!-- Distance Badge -->
+        <span
+            class="flex w-max items-center justify-center gap-1 rounded-pill bg-white/15 px-1.5 py-0.5 dark:bg-[#181a1b]/15">
+            <img class="h-2.5 w-2.5 filter-icon-inverse" src="https://i.ibb.co.com/9mGztNGz/location-marker.webp" alt=""
+                aria-hidden="true">
+
+            <span class="text-[0.625rem] leading-[1.125rem] font-semibold text-white dark:text-text-inverseDark">
+                5-10km away
+            </span>
+        </span>
+
+        <!-- Premium Badge -->
+        <span class="flex h-5 w-5 shrink-0 items-center justify-center">
+            <img class="h-full w-full" src="https://i.ibb.co.com/5pS5fhd/verified-tick.webp" alt="Verified profile">
+        </span>
+
+        <!-- Online Dot -->
+        <span aria-label="Online"
+            class="h-1.5 w-1.5 shrink-0 rounded-full bg-profileStatus-online dark:bg-profileStatus-onlineDark">
+        </span>
+
+        <!-- view-switcher -->
+        <div data-component="view-switcher" role="group" aria-label="Change likes view"
+            class="w-max flex items-center rounded-pill bg-viewToggle-surface p-0.5 dark:bg-viewToggle-surfaceDark">
+            <!-- grid-view -->
+            <button type="button" data-action="change-view" data-view="grid" data-state="active" aria-label="Grid view"
+                class="flex h-9 w-9 items-center justify-center rounded-full px-1.5 py-1 data-[state=active]:bg-viewToggle-active dark:data-[state=active]:bg-viewToggle-activeDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                <img class="h-5 w-5 filter-icon-action-muted" src="https://i.ibb.co.com/4RDndGYJ/grid.webp" alt=""
+                    aria-hidden="true">
+            </button>
+
+            <!-- list-view -->
+            <button type="button" data-action="change-view" data-view="list" data-state="default" aria-label="List view"
+                class="flex h-9 w-9 items-center justify-center rounded-full px-1.5 py-1 data-[state=active]:bg-viewToggle-active dark:data-[state=active]:bg-viewToggle-activeDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2">
+                <img class="h-5 w-5 filter-icon-action-muted" src="https://i.ibb.co.com/dJBJR4w2/list.webp" alt=""
+                    aria-hidden="true">
+            </button>
+        </div>
+
+        <!-- matched-card-info -->
+        <div data-component="compatibility-grid" class="grid grid-cols-2 gap-2">
+            <!-- compatibility-card -->
+            <article data-component="compatibility-card" data-category="pets"
+                class="flex flex-col gap-2 rounded-lg bg-compatibility-surface p-2 dark:bg-compatibility-surfaceDark">
+                <!-- category-icon -->
+                <span aria-hidden="true"
+                    class="flex w-max items-center justify-center rounded-full bg-compatibility-iconSurface/25 p-1.5 dark:bg-compatibility-iconSurfaceDark/25">
+
+                    <img class="h-5 w-5 filter-icon-compatibility" src="https://i.ibb.co.com/XrsNg4HW/dog-paw.webp"
+                        alt="">
+                </span>
+
+                <!-- content -->
+                <div class="flex flex-col gap-1">
+                    <h3 class="text-sm leading-description font-semibold text-text-heading dark:text-text-headingDark">
+                        Dog Lovers
+                    </h3>
+                    <p class="text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                        You both have a <strong class="font-semibold">soft spot for pups</strong>
+                    </p>
+                </div>
+            </article>
+        </div>
+
+        <!-- match-highlight -->
+        <article data-component="match-highlight"
+            class="flex items-center gap-2 rounded-lg bg-matchHighlight-surface/10 p-2 dark:bg-matchHighlight-surfaceDark/10">
+            <!-- match-icon -->
+            <span aria-hidden="true" class="flex h-8 w-8 shrink-0 items-center justify-center">
+                <img class="h-full w-full filter-icon-match-highlight" src="https://i.ibb.co.com/3yTbd3k2/aura.webp"
+                    alt="">
+            </span>
+
+            <!-- content -->
+            <div class="flex max-w-[15rem] flex-col">
+                <h3
+                    class="text-sm leading-description font-semibold text-matchHighlight-accent dark:text-matchHighlight-accentDark">
+                    Great match!
+                </h3>
+
+                <p class="text-xs leading-normal text-text-description dark:text-text-descriptionDark">
+                    You both are looking for long-term relationship and value honest communication.
+                </p>
+            </div>
+
+            <!-- decorative-heart -->
+            <span aria-hidden="true" class="flex w-14 shrink-0 items-center justify-center">
+                <img class="h-full w-full filter-icon-match-highlight"
+                    src="https://i.ibb.co.com/ynwXNB29/heart-big.webp" alt="">
+            </span>
         </article>
     </main>
 
