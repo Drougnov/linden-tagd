@@ -288,8 +288,14 @@
                             shadow: 'rgba(0,0,0,0.15)',
                         },
                         chatAttachment: {
-                            surface: '#F4F4F6',
-                            surfaceDark: '#1E2021',
+                            surface: '#F9FAFB',
+                            surfaceDark: '#1B1D1E',
+
+                            border: '#D3D5DA',
+                            borderDark: '#3B4043',
+
+                            divider: '#E5E6EB',
+                            dividerDark: '#363B3D',
 
                             accent: '#9EA3AE',
 
@@ -367,6 +373,50 @@
 
                             accent: '#FD3B79',
                             accentDark: '#FD447F',
+                        },
+                        flirtyMode: {
+                            surface: '#E85897',
+                            surfaceDark: '#8C164A',
+
+                            cardSurface: 'rgba(255,255,255,0.1)',
+                            cardSurfaceDark: 'rgba(24,26,27,0.1)',
+
+                            action: '#8C32B0',
+                            actionHover: '#7E2D9E',
+                            actionActive: '#72288F',
+
+                            actionDark: '#712A8E',
+                            actionHoverDark: '#662680',
+                            actionActiveDark: '#5B2273',
+
+                            timerBarSurface: '#F9EEF6',
+                            timerBarSurfaceDark: '#2E1126',
+
+                            timerAction: '#EE66A1',
+                            timerActionHover: '#DF5B95',
+                            timerActionActive: '#D25089',
+
+                            timerActionDark: '#851043',
+                            timerActionHoverDark: '#760E3C',
+                            timerActionActiveDark: '#680C35',
+
+                            hiddenMessageHover: 'rgba(255, 255, 255, 0.10)',
+                            hiddenMessageActive: 'rgba(255, 255, 255, 0.16)',
+
+                            hiddenMessageHoverDark: 'rgba(24, 26, 27, 0.10)',
+                            hiddenMessageActiveDark: 'rgba(24, 26, 27, 0.16)',
+
+                            statusDark: '#E45F99',
+                        },
+                        timerPicker: {
+                            divider: '#E5E6EB',
+                            dividerDark: '#363B3D',
+
+                            option: '#005B96',
+                            optionDark: '#04558A',
+
+                            offAction: '#8C32B0',
+                            offActionDark: '#AC5DCC',
                         },
                     },
                     spacing: {
@@ -484,6 +534,11 @@
                         'discover-tag-gap': '0.5rem',
                         'discover-tag-x': '0.75rem',
                         'discover-tag-y': '0.5rem',
+
+                        'flirty-content-padding-top': '3.75rem',
+                        'flirty-image-height': '16.9375rem',
+                        'flirty-card-padding-y': '1rem',
+                        'flirty-card-padding-x': '0.75rem',
                     },
                     borderRadius: {
                         pill: '6.25rem',
@@ -589,6 +644,8 @@
                         'toggle-thumb': '1.25rem',
 
                         'date-card-image': '100%',
+
+                        'chat-attachment-menu': '11.6875rem',
                     },
                     height: {
                         'progress-height': '0.5rem',
@@ -672,6 +729,8 @@
                         'toggle-thumb': '1.25rem',
 
                         'date-card-selected': '11.25rem',
+
+                        'flirty-min-height': '52.75rem',
                     },
                     minWidth: {
                         'range-tooltip': '3.625rem',
@@ -693,6 +752,12 @@
                         'gift-badge-top': '0.5rem',
                         'gift-badge-right': '-1.25rem',
                     },
+                    fontSize: {
+                        'flirty-title': ['2.125rem', {
+                            lineHeight: '2.625rem',
+                            letterSpacing: '-0.01875rem',
+                        }],
+                    },
                     lineHeight: {
                         description: '1.375rem',
                         tagSmall: '1.125rem',
@@ -708,6 +773,8 @@
                         tagSmall: '-0.000875rem',
 
                         'tab': '0',
+
+                        'timer-picker-title': '0.0125rem',
                     },
                     aspectRatio: {
                         uploadCard: '3 / 4',
@@ -799,6 +866,9 @@
                         },
                         '.filter-icon-match-highlight': {
                             filter: 'brightness(0) saturate(100%) invert(33%) sepia(77%) saturate(2516%) hue-rotate(321deg) brightness(104%) contrast(98%)',
+                        },
+                        '.filter-icon-flirty-status': {
+                            filter: 'brightness(0) saturate(100%) invert(58%) sepia(36%) saturate(4457%) hue-rotate(301deg) brightness(93%) contrast(95%)',
                         },
                     });
                 },
@@ -3602,6 +3672,312 @@
                     src="https://i.ibb.co.com/ynwXNB29/heart-big.webp" alt="">
             </span>
         </article>
+
+        <!-- chat attachment dropdown -->
+        <div data-component="chat-attachment-dropdown" data-state="open" role="group"
+            aria-label="Chat attachment options"
+            class="flex w-chat-attachment-menu flex-col divide-y divide-chatAttachment-divider overflow-hidden rounded-xl border border-chatAttachment-border bg-chatAttachment-surface dark:divide-chatAttachment-dividerDark dark:border-chatAttachment-borderDark dark:bg-chatAttachment-surfaceDark">
+            <button type="button" data-element="attachment-option" data-action="select-chat-attachment"
+                data-attachment-type="photos" data-state="default"
+                class="flex w-full items-center justify-between gap-2 p-2 text-left transition-colors hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-border-focus motion-reduce:transition-none dark:hover:bg-surface-disabledDark">
+                <span class="min-w-0 text-base font-medium text-text-heading dark:text-text-headingDark">
+                    Photos
+                </span>
+
+                <img class="h-5 w-5 shrink-0 filter-icon-primary" src="https://i.ibb.co.com/8n1yMch5/images.webp" alt=""
+                    aria-hidden="true" />
+            </button>
+
+            <button type="button" data-element="attachment-option" data-action="select-chat-attachment"
+                data-attachment-type="camera" data-state="default"
+                class="flex w-full items-center justify-between gap-2 p-2 text-left transition-colors hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-border-focus motion-reduce:transition-none dark:hover:bg-surface-disabledDark">
+                <span class="min-w-0 text-base font-medium text-text-heading dark:text-text-headingDark">
+                    Camera
+                </span>
+
+                <img class="h-5 w-5 shrink-0 filter-icon-primary" src="https://i.ibb.co.com/1fSsXXn9/camera.webp" alt=""
+                    aria-hidden="true" />
+            </button>
+
+            <button type="button" data-element="attachment-option" data-action="select-chat-attachment"
+                data-attachment-type="gifs" data-state="default"
+                class="flex w-full items-center justify-between gap-2 p-2 text-left transition-colors hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-border-focus motion-reduce:transition-none dark:hover:bg-surface-disabledDark">
+                <span class="min-w-0 text-base font-medium text-text-heading dark:text-text-headingDark">
+                    GIFs
+                </span>
+
+                <img class="h-5 w-5 shrink-0 filter-icon-primary" src="https://i.ibb.co.com/KppLhFb2/gifs.webp" alt=""
+                    aria-hidden="true" />
+            </button>
+
+            <button type="button" data-element="attachment-option" data-action="select-chat-attachment"
+                data-attachment-type="flirty-mode" data-state="default"
+                class="flex w-full items-center justify-between gap-2 p-2 text-left transition-colors hover:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-border-focus motion-reduce:transition-none dark:hover:bg-surface-disabledDark">
+                <span class="min-w-0 text-base font-medium text-text-heading dark:text-text-headingDark">
+                    Flirty mode
+                </span>
+
+                <img class="h-5 w-5 shrink-0 filter-icon-primary"
+                    src="https://i.ibb.co.com/9HNb8tYC/fire-flirty-mode.webp" alt="" aria-hidden="true" />
+            </button>
+        </div>
+
+        <!-- Flirty-mode intro popup -->
+        <div data-component="flirty-mode-intro" data-state="open"
+            class="flex w-[calc(100%+2rem)] ml-report-list-offset">
+
+            <!-- component-start-from-here -->
+            <!-- container -->
+            <div
+                class="relative flex min-h-flirty-min-height w-full flex-col justify-between gap-4 bg-flirtyMode-surface px-4 pb-4 pt-flirty-content-padding-top dark:bg-flirtyMode-surfaceDark">
+
+                <!-- close-button -->
+                <button type="button" data-action="close-flirty-mode-intro" aria-label="Close flirty mode introduction"
+                    class="absolute right-4 top-4 flex items-center justify-center rounded-full bg-surface-page p-1 transition-colors hover:bg-surface-disabled active:bg-surface-disabled focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none dark:bg-surface-pageDark dark:hover:bg-surface-disabledDark dark:active:bg-surface-disabledDark">
+                    <img class="h-5 w-5 filter-icon-primary" src="https://i.ibb.co.com/hJfdxBR2/cross.webp" alt=""
+                        aria-hidden="true" />
+                </button>
+
+
+                <div class="flex flex-col items-center justify-center gap-4">
+
+                    <div class="max-h-flirty-image-height">
+                        <img class="h-full w-full object-cover"
+                            src="https://i.ibb.co.com/BKfp5XQ3/flirty-mode-intro.webp" alt="Flirty mode introduction" />
+                    </div>
+
+
+                    <section class="flex flex-col items-center justify-center gap-2 text-center">
+                        <h1 class="text-flirty-title font-bold text-text-inverse dark:text-text-inverseDark">
+                            Flirty mode
+                        </h1>
+
+                        <span class="text-sm leading-description text-text-inverse dark:text-text-inverseDark">
+                            When the vibe gets hotter
+                        </span>
+                    </section>
+
+
+                    <div class="flex w-full flex-col gap-2">
+
+                        <div
+                            class="flex items-center gap-2 rounded-2xl bg-flirtyMode-cardSurface px-flirty-card-padding-x py-flirty-card-padding-y dark:bg-flirtyMode-cardSurfaceDark">
+                            <img class="h-6 w-6 shrink-0 filter-icon-inverse"
+                                src="https://i.ibb.co.com/9HNb8tYC/fire-flirty-mode.webp" alt="" aria-hidden="true" />
+
+                            <div class="flex flex-col gap-1">
+                                <h4 class="text-base font-semibold text-text-inverse dark:text-text-inverseDark">
+                                    Flirty, fun & pressure-free
+                                </h4>
+
+                                <span class="text-xs leading-normal text-text-inverse dark:text-text-inverseDark">
+                                    Create a bolder, more playful space to connect
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div
+                            class="flex items-center gap-2 rounded-2xl bg-flirtyMode-cardSurface px-flirty-card-padding-x py-flirty-card-padding-y dark:bg-flirtyMode-cardSurfaceDark">
+                            <img class="h-6 w-6 shrink-0 filter-icon-inverse"
+                                src="https://i.ibb.co.com/C5HzLxFh/stopwatch.webp" alt="" aria-hidden="true" />
+
+                            <div class="flex flex-col gap-1">
+                                <h4 class="text-base font-semibold text-text-inverse dark:text-text-inverseDark">
+                                    Disappearing messages
+                                </h4>
+
+                                <span class="text-xs leading-normal text-text-inverse dark:text-text-inverseDark">
+                                    Choose a timer and message.
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div
+                            class="flex items-center gap-2 rounded-2xl bg-flirtyMode-cardSurface px-flirty-card-padding-x py-flirty-card-padding-y dark:bg-flirtyMode-cardSurfaceDark">
+                            <img class="h-6 w-6 shrink-0 filter-icon-inverse"
+                                src="https://i.ibb.co.com/KjY4XVC0/lock.webp" alt="" aria-hidden="true" />
+
+                            <div class="flex flex-col gap-1">
+                                <h4 class="text-base font-semibold text-text-inverse dark:text-text-inverseDark">
+                                    You’re in control
+                                </h4>
+
+                                <span class="text-xs leading-normal text-text-inverse dark:text-text-inverseDark">
+                                    You can turn Flirt mode on or off anytime.
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- got-it-button -->
+                <button type="button" data-action="confirm-flirty-mode-intro"
+                    class="flex w-full items-center justify-center rounded-pill bg-flirtyMode-action px-6 py-button-y transition-colors hover:bg-flirtyMode-actionHover active:bg-flirtyMode-actionActive focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none dark:bg-flirtyMode-actionDark dark:hover:bg-flirtyMode-actionHoverDark dark:active:bg-flirtyMode-actionActiveDark">
+                    <span
+                        class="text-base font-semibold leading-5 tracking-button text-text-inverse dark:text-text-inverseDark">
+                        Got it
+                    </span>
+                </button>
+
+            </div>
+            <!-- component-ends-here -->
+
+        </div>
+
+        <!-- Flirty-mode timer settings bar -->
+        <section data-component="flirty-mode-timer-bar" data-state="active" aria-labelledby="flirty-mode-timer-title"
+            class="w-[calc(100%+2rem)] ml-report-list-offset flex items-center gap-2 bg-flirtyMode-timerBarSurface px-4 py-3 dark:bg-flirtyMode-timerBarSurfaceDark">
+            <img data-element="flirty-mode-icon" class="h-6 w-6 shrink-0 filter-icon-like"
+                src="https://i.ibb.co.com/9HNb8tYC/fire-flirty-mode.webp" alt="" aria-hidden="true" />
+
+            <div data-element="timer-bar-content" class="flex min-w-0 flex-1 items-center justify-between gap-1">
+                <h2 id="flirty-mode-timer-title" data-element="timer-bar-title"
+                    class="truncate text-lg font-semibold leading-subtitle text-text-heading dark:text-text-headingDark">
+                    Flirty mode
+                </h2>
+
+                <button type="button" data-action="open-flirty-timer-settings" data-state="default"
+                    aria-label="Open Flirty mode timer settings"
+                    class="inline-flex shrink-0 items-center justify-center gap-2 rounded-pill bg-flirtyMode-timerAction p-2 transition-colors hover:bg-flirtyMode-timerActionHover active:bg-flirtyMode-timerActionActive focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none dark:bg-flirtyMode-timerActionDark dark:hover:bg-flirtyMode-timerActionHoverDark dark:active:bg-flirtyMode-timerActionActiveDark">
+                    <img data-element="timer-settings-icon" class="h-5 w-5 shrink-0 filter-icon-inverse"
+                        src="https://i.ibb.co.com/N63fLzsX/timer.webp" alt="" aria-hidden="true" />
+
+                    <span data-element="timer-settings-label"
+                        class="text-sm font-semibold leading-tagSmall tracking-tagSmall text-text-inverse dark:text-text-inverseDark">
+                        Timer settings
+                    </span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Choose-a-timer dropdown -->
+        <section data-component="timer-picker" data-state="open" role="dialog" aria-modal="true"
+            aria-labelledby="timer-picker-title" aria-describedby="timer-picker-description"
+            class="w-[calc(100%+2rem)] ml-report-list-offset flex flex-col gap-4 overflow-hidden rounded-t-2xl bg-surface-page py-4 dark:bg-surface-pageDark">
+            <!-- drag handle -->
+            <span data-element="drag-handle" aria-hidden="true"
+                class="pointer-events-none h-2 w-20 self-center rounded-pill bg-surface-disabled dark:bg-surface-disabledDark"></span>
+
+            <!-- header -->
+            <header data-element="timer-picker-header" class="flex w-full flex-col px-4">
+                <div class="flex items-center justify-between gap-1">
+                    <h2 id="timer-picker-title"
+                        class="text-2xl font-bold leading-normal tracking-timer-picker-title text-text-heading dark:text-text-headingDark">
+                        Choose a timer
+                    </h2>
+
+                    <button type="button" data-action="close-timer-picker" aria-label="Close timer settings"
+                        class="inline-flex shrink-0 items-center justify-center rounded-full bg-surface-page p-1 transition-colors hover:bg-surface-disabled active:bg-surface-disabled/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-border-focus disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none dark:bg-surface-pageDark dark:hover:bg-surface-disabledDark dark:active:bg-surface-disabledDark/80">
+                        <img data-element="close-icon" class="h-5 w-5 filter-icon-primary"
+                            src="https://i.ibb.co.com/hJfdxBR2/cross.webp" alt="" aria-hidden="true" />
+                    </button>
+                </div>
+
+                <p id="timer-picker-description"
+                    class="text-sm font-medium leading-description text-text-description dark:text-text-descriptionDark">
+                    The message will self-destruct after the timer expires
+                </p>
+            </header>
+
+            <div data-element="timer-picker-content" class="flex flex-col gap-2">
+                <fieldset data-component="timer-option-list" class="flex flex-col">
+                    <legend class="sr-only">
+                        Select message expiration time
+                    </legend>
+
+                    <!-- 1 minute -->
+                    <label data-element="timer-option" data-timer-value="60" class="group block cursor-pointer">
+                        <input data-action="select-message-timer" class="peer sr-only" type="radio" name="message-timer"
+                            value="60" />
+
+                        <span
+                            class="flex w-full items-center gap-2 px-4 py-3 text-base font-medium text-text-heading transition-colors hover:bg-timerPicker-option/10 group-active:bg-timerPicker-option/15 peer-checked:bg-timerPicker-option/10 peer-focus-visible:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-inset peer-focus-visible:ring-border-focus peer-disabled:cursor-not-allowed peer-disabled:opacity-50 motion-reduce:transition-none dark:text-text-headingDark dark:hover:bg-timerPicker-optionDark/10 dark:group-active:bg-timerPicker-optionDark/15 dark:peer-checked:bg-timerPicker-optionDark/10">
+                            1 minute
+                        </span>
+                    </label>
+
+                    <!-- 5 minutes -->
+                    <label data-element="timer-option" data-timer-value="300" class="group block cursor-pointer">
+                        <input data-action="select-message-timer" class="peer sr-only" type="radio" name="message-timer"
+                            value="300" />
+
+                        <span
+                            class="flex w-full items-center gap-2 px-4 py-3 text-base font-medium text-text-heading transition-colors hover:bg-timerPicker-option/10 group-active:bg-timerPicker-option/15 peer-checked:bg-timerPicker-option/10 peer-focus-visible:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-inset peer-focus-visible:ring-border-focus peer-disabled:cursor-not-allowed peer-disabled:opacity-50 motion-reduce:transition-none dark:text-text-headingDark dark:hover:bg-timerPicker-optionDark/10 dark:group-active:bg-timerPicker-optionDark/15 dark:peer-checked:bg-timerPicker-optionDark/10">
+                            5 minutes
+                        </span>
+                    </label>
+
+                    <!-- 30 minutes -->
+                    <label data-element="timer-option" data-timer-value="1800" class="group block cursor-pointer">
+                        <input data-action="select-message-timer" class="peer sr-only" type="radio" name="message-timer"
+                            value="1800" />
+
+                        <span
+                            class="flex w-full items-center gap-2 px-4 py-3 text-base font-medium text-text-heading transition-colors hover:bg-timerPicker-option/10 group-active:bg-timerPicker-option/15 peer-checked:bg-timerPicker-option/10 peer-focus-visible:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-inset peer-focus-visible:ring-border-focus peer-disabled:cursor-not-allowed peer-disabled:opacity-50 motion-reduce:transition-none dark:text-text-headingDark dark:hover:bg-timerPicker-optionDark/10 dark:group-active:bg-timerPicker-optionDark/15 dark:peer-checked:bg-timerPicker-optionDark/10">
+                            30 minutes
+                        </span>
+                    </label>
+
+                    <!-- 6 hours -->
+                    <label data-element="timer-option" data-timer-value="21600" class="group block cursor-pointer">
+                        <input data-action="select-message-timer" class="peer sr-only" type="radio" name="message-timer"
+                            value="21600" />
+
+                        <span
+                            class="flex w-full items-center gap-2 px-4 py-3 text-base font-medium text-text-heading transition-colors hover:bg-timerPicker-option/10 group-active:bg-timerPicker-option/15 peer-checked:bg-timerPicker-option/10 peer-focus-visible:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-inset peer-focus-visible:ring-border-focus peer-disabled:cursor-not-allowed peer-disabled:opacity-50 motion-reduce:transition-none dark:text-text-headingDark dark:hover:bg-timerPicker-optionDark/10 dark:group-active:bg-timerPicker-optionDark/15 dark:peer-checked:bg-timerPicker-optionDark/10">
+                            6 hours
+                        </span>
+                    </label>
+                </fieldset>
+
+                <hr
+                    class="h-0 w-full border-0 border-t border-timerPicker-divider dark:border-timerPicker-dividerDark" />
+
+                <button type="button" data-action="disable-flirty-mode"
+                    class="inline-flex w-max items-center justify-center px-4 py-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-border-focus disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none">
+                    <span class="text-base font-medium text-timerPicker-offAction dark:text-timerPicker-offActionDark">
+                        Off (Turn off flirty mode)
+                    </span>
+                </button>
+            </div>
+        </section>
+
+        <!-- tap-to-view hidden-message -->
+        <section data-component="chat-day-group" aria-label="Today messages" class="flex flex-col gap-4">
+            <div data-component="message-list" class="flex max-w-chat-message-max flex-col items-end gap-6 self-end">
+                <!-- outgoing hidden message -->
+                <article data-component="chat-message" data-message-type="outgoing" data-message-variant="hidden"
+                    data-state="hidden"
+                    class="relative flex w-fit max-w-full flex-col gap-2 rounded-chat-outgoing bg-flirtyMode-surface px-chat-bubble-x py-chat-bubble-y dark:bg-flirtyMode-surfaceDark">
+                    <button type="button" data-action="reveal-hidden-message" data-state="default"
+                        class="inline-flex items-center justify-center gap-2 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 focus-visible:ring-offset-flirtyMode-surface disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none dark:focus-visible:ring-offset-flirtyMode-surfaceDark">
+                        <img data-element="hidden-message-icon" class="h-5 w-5 shrink-0 filter-icon-inverse"
+                            src="https://i.ibb.co.com/nsQzGDjP/eye.webp" alt="" aria-hidden="true" />
+
+                        <span data-element="hidden-message-label"
+                            class="text-base text-text-inverse dark:text-text-inverseDark">
+                            Tap to view
+                        </span>
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <!-- minutes-left-span -->
+        <div data-component="flirty-message-expiry" data-state="active" data-time-remaining="10" role="status"
+            aria-live="polite" aria-label="10 minutes remaining" class="flex items-center gap-1">
+            <img data-element="expiry-icon" class="h-4 w-4 shrink-0 filter-icon-flirty-status"
+                src="https://i.ibb.co.com/9HNb8tYC/fire-flirty-mode.webp" alt="" aria-hidden="true" />
+
+            <span data-element="expiry-label"
+                class="text-xs font-medium tracking-status text-flirtyMode-surface dark:text-flirtyMode-statusDark">
+                10 min left
+            </span>
+        </div>
     </main>
 
 </body>
